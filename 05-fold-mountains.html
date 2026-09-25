@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الجبال الالتوائية | جغرافيا</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#10131a;
+    color:#fff;
+    line-height:1.9;
+}
+
+header{
+    background:linear-gradient(135deg,#151a24,#252f43);
+    padding:28px 15px;
+    text-align:center;
+    border-bottom:2px solid #ff9800;
+}
+
+header h1{
+    color:#ffb52e;
+    font-size:30px;
+}
+
+header p{
+    color:#ddd;
+    margin-top:5px;
+}
+
+.container{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.card{
+    background:#191f2b;
+    border:1px solid #30394b;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+h2{
+    color:#ffb52e;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#ffd166;
+    margin:18px 0 8px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+.memory{
+    border-right:5px solid #ff9800;
+    background:#222a39;
+    padding:15px;
+    border-radius:12px;
+    margin:12px 0;
+}
+
+.example{
+    background:#172b32;
+    border-right:5px solid #00bcd4;
+    padding:15px;
+    border-radius:12px;
+    margin:12px 0;
+}
+
+.tip{
+    background:#29251a;
+    border:1px solid #6d5a25;
+    border-radius:12px;
+    padding:15px;
+    margin-top:15px;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:20px 0;
+}
+
+nav a,
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#ff9800;
+    color:#111;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+}
+
+nav a:hover,
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.question{
+    background:#202737;
+    border-radius:14px;
+    padding:18px;
+    margin:15px 0;
+}
+
+.option{
+    display:block;
+    width:100%;
+    background:#2a3345;
+    border:1px solid #3d4960;
+    color:#fff;
+    text-align:right;
+    padding:12px;
+    border-radius:9px;
+    margin:8px 0;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.option:hover{
+    background:#37445c;
+}
+
+.option:disabled{
+    cursor:not-allowed;
+}
+
+.correct{
+    background:#176b42 !important;
+}
+
+.wrong{
+    background:#7a2730 !important;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #59657a;
+    background:#111722;
+    color:white;
+    margin:8px 0;
+    font-size:16px;
+}
+
+.feedback{
+    font-weight:bold;
+    margin-top:10px;
+    min-height:28px;
+}
+
+.score{
+    text-align:center;
+    font-size:24px;
+    color:#ffd166;
+    margin:20px;
+}
+
+.reward{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.reward.show{
+    display:flex;
+}
+
+.reward-box{
+    background:#202838;
+    border:2px solid #ff4d88;
+    border-radius:22px;
+    text-align:center;
+    padding:30px;
+    max-width:450px;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+
+.reward-box .big{
+    font-size:60px;
+}
+
+.reward-box h2{
+    color:#ff77a8;
+}
+
+.hearts{
+    font-size:30px;
+    animation:heart 1s infinite alternate;
+}
+
+@keyframes heart{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.2);
+    }
+
+}
+
+.floating-heart{
+    position:absolute;
+    animation:floatHeart 2s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(30px) scale(.5);
+        opacity:0;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-150px) scale(1.3);
+        opacity:0;
+    }
+
+}
+
+footer{
+    text-align:center;
+    color:#aaa;
+    padding:30px 15px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:23px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>🏔️ الجبال الالتوائية</h1>
+
+    <p>
+        القسم الخامس — مظاهر السطح في الوطن العربي
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+<nav>
+
+    <a href="04-old-mountains.html">
+        ⬅️ القسم السابق
+    </a>
+
+    <a href="06-fault-mountains.html">
+        القسم التالي ➡️
+    </a>
+
+</nav>
+
+
+<!-- مقدمة -->
+
+<div class="card">
+
+    <h2>🏔️ ما هي الجبال الالتوائية؟</h2>
+
+    <p>
+        تكونت الجبال الالتوائية في أواخر الحقب الجيولوجي الثاني،
+        وبلغت عمليات تكونها أشدها في الحقب الجيولوجي الثالث.
+    </p>
+
+    <p>
+        وقد نتج ذلك عن عملية تقارب الصفيحة الأفريقية والأوراسية،
+        وما نتج عنها من حركات التوائية كبيرة.
+    </p>
+
+    <div class="memory">
+
+        🧠 للحفظ:
+
+        <br><br>
+
+        الجبال الالتوائية ← تقارب الصفيحة الأفريقية والأوراسية
+        ← حركات التوائية كبيرة.
+
+    </div>
+
+</div>
+
+
+<!-- أهم السلاسل -->
+
+<div class="card">
+
+    <h2>📚 أهم الجبال الالتوائية</h2>
+
+    <div class="memory">
+        1️⃣ جبال أطلس.
+    </div>
+
+    <div class="memory">
+        2️⃣ جبال العراق.
+    </div>
+
+    <div class="memory">
+        3️⃣ مرتفعات عمان.
+    </div>
+
+</div>
+
+
+<!-- جبال أطلس -->
+
+<div class="card">
+
+    <h2>🇲🇦 جبال أطلس</h2>
+
+    <p>
+        تتألف جبال أطلس من عدة سلاسل تحصر بينها هضاباً،
+        وتمتد من الغرب إلى الشرق في المغرب العربي.
+    </p>
+
+    <p>
+        تبدأ من الغرب عريضة وشاهقة،
+        وتضيق كلما اتجهنا شرقاً في الجزائر،
+        وتنتهي عند رأس آذار (الطيب) في تونس.
+    </p>
+
+    <div class="example">
+
+        🏔️ أعلى قمم جبال أطلس:
+
+        <br><br>
+
+        جبل طوبقال — <strong>٤١٦٥م</strong>.
+
+        <br><br>
+
+        يقع جنوب مراكش بنحو ٧٥ كم.
+
+    </div>
+
+</div>
+
+
+<!-- طريقة حفظ أطلس -->
+
+<div class="card">
+
+    <h2>🧠 احفظي جبال أطلس بهذه الطريقة</h2>
+
+    <div class="tip">
+
+        🌍 جبال أطلس → المغرب العربي
+
+        <br><br>
+
+        ↔️ تمتد من الغرب إلى الشرق.
+
+        <br><br>
+
+        🏔️ أعلى قمة → جبل طوبقال.
+
+        <br><br>
+
+        📏 الارتفاع → ٤١٦٥م.
+
+    </div>
+
+</div>
+
+
+<!-- جبال العراق -->
+
+<div class="card">
+
+    <h2>🇮🇶 جبال العراق</h2>
+
+    <p>
+        تقع جبال العراق في شمالي العراق وشماله الشرقي.
+    </p>
+
+    <p>
+        وتنتمي أيضاً إلى الحقب الثالث.
+    </p>
+
+    <p>
+        وتتميز هذه الجبال بوجود عدد من الأودية العميقة
+        التي تحدد سفوحها الغربية.
+    </p>
+
+    <h3>🌊 أهم الأودية</h3>
+
+    <div class="memory">
+
+        ديالى
+
+        <br>
+
+        الزاب الكبير
+
+        <br>
+
+        الزاب الصغير
+
+    </div>
+
+    <p>
+        وهي جبال مرتفعة، وفيها قمة حصاروست
+        التي يبلغ ارتفاعها <strong>٣٦٠٠م</strong>.
+    </p>
+
+    <p>
+        وتكسو قممها الثلوج.
+    </p>
+
+</div>
+
+
+<!-- مرتفعات عمان -->
+
+<div class="card">
+
+    <h2>🇴🇲 مرتفعات عمان</h2>
+
+    <p>
+        تمتد مرتفعات عمان على شكل قوس جبلي كبير
+        يساير ساحل خليج عمان.
+    </p>
+
+    <p>
+        وهي مرتفعات التوائية وعرة شديدة الانحدار.
+    </p>
+
+    <div class="example">
+
+        🏔️ من أهم أجزائها:
+
+        <br><br>
+
+        <strong>الجبل الأخضر.</strong>
+
+    </div>
+
+</div>
+
+
+<!-- مقارنة -->
+
+<div class="card">
+
+    <h2>⚖️ مقارنة بين أهم الجبال الالتوائية</h2>
+
+    <div class="memory">
+
+        🏔️ أطلس
+
+        <br>
+
+        المغرب العربي
+
+        <br>
+
+        أعلى قمة: طوبقال ٤١٦٥م
+
+    </div>
+
+    <div class="memory">
+
+        🏔️ جبال العراق
+
+        <br>
+
+        شمال العراق وشماله الشرقي
+
+        <br>
+
+        قمة حصاروست ٣٦٠٠م
+
+    </div>
+
+    <div class="memory">
+
+        🏔️ مرتفعات عمان
+
+        <br>
+
+        تساير ساحل خليج عمان
+
+        <br>
+
+        من أهم أجزائها الجبل الأخضر
+
+    </div>
+
+</div>
+
+
+<!-- خلاصة -->
+
+<div class="card">
+
+    <h2>🎯 خلاصة للحفظ</h2>
+
+    <div class="memory">
+
+        الجبال الالتوائية → أواخر الحقب الثاني
+        وأشد تكوّنها في الحقب الثالث.
+
+    </div>
+
+    <div class="memory">
+
+        سبب مهم في تكوّنها → تقارب الصفيحة الأفريقية
+        والأوراسية.
+
+    </div>
+
+    <div class="memory">
+
+        جبال أطلس → المغرب العربي → جبل طوبقال ٤١٦٥م.
+
+    </div>
+
+    <div class="memory">
+
+        جبال العراق → شمال العراق وشماله الشرقي
+        → قمة حصاروست ٣٦٠٠م.
+
+    </div>
+
+    <div class="memory">
+
+        مرتفعات عمان → قوس جبلي يساير ساحل خليج عمان
+        → الجبل الأخضر.
+
+    </div>
+
+</div>
+
+
+<!-- الاختبار -->
+
+<div class="card">
+
+    <h2>🎮 اختبار الجبال الالتوائية</h2>
+
+    <div id="score" class="score">
+        النقاط: 0
+    </div>
+
+
+    <!-- سؤال 1 -->
+
+    <div class="question">
+
+        <h3>
+            1. ما السبب الرئيسي المذكور في الدرس
+            لتكون الجبال الالتوائية؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback1')">
+
+            تقارب الصفيحة الأفريقية والأوراسية
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback1')">
+
+            الترسيب النهري
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback1')">
+
+            التعرية الريحية فقط
+
+        </button>
+
+        <div id="feedback1" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 2 -->
+
+    <div class="question">
+
+        <h3>
+            2. أين تمتد جبال أطلس؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback2')">
+
+            في المغرب العربي
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback2')">
+
+            في شبه الجزيرة العربية فقط
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback2')">
+
+            في السودان فقط
+
+        </button>
+
+        <div id="feedback2" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 3 -->
+
+    <div class="question">
+
+        <h3>
+            3. ما أعلى قمم جبال أطلس المذكورة في الدرس؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback3')">
+
+            جبل طوبقال — ٤١٦٥م
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback3')">
+
+            قمة حصاروست — ٣٦٠٠م
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback3')">
+
+            جبل النبي شعيب — ٣٧٦٠م
+
+        </button>
+
+        <div id="feedback3" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 4 -->
+
+    <div class="question">
+
+        <h3>
+            4. أين تقع جبال العراق المذكورة في الدرس؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback4')">
+
+            شمالي العراق وشماله الشرقي
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback4')">
+
+            غرب المغرب
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback4')">
+
+            جنوب مصر
+
+        </button>
+
+        <div id="feedback4" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 5 -->
+
+    <div class="question">
+
+        <h3>
+            5. اكتبي اسم أعلى قمة في جبال العراق المذكورة:
+        </h3>
+
+        <input
+            id="answer5"
+            type="text"
+            placeholder="اكتبي الإجابة هنا"
+        >
+
+        <button
+            class="btn"
+            onclick="checkAnswer5()">
+
+            تحقق ✅
+
+        </button>
+
+        <div id="feedback5" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 6 -->
+
+    <div class="question">
+
+        <h3>
+            6. ما أهم أجزاء مرتفعات عمان المذكورة؟
+        </h3>
+
+        <input
+            id="answer6"
+            type="text"
+            placeholder="اكتبي الإجابة هنا"
+        >
+
+        <button
+            class="btn"
+            onclick="checkAnswer6()">
+
+            تحقق ✅
+
+        </button>
+
+        <div id="feedback6" class="feedback"></div>
+
+    </div>
+
+
+</div>
+
+
+<nav>
+
+    <a href="04-old-mountains.html">
+        ⬅️ الجبال القديمة
+    </a>
+
+    <a href="06-fault-mountains.html">
+        الجبال الانكسارية ➡️
+    </a>
+
+</nav>
+
+
+</div>
+
+
+<!-- المكافأة -->
+
+<div id="reward" class="reward">
+
+    <div class="reward-box">
+
+        <div class="hearts">
+            ❤️ 💕 ❤️
+        </div>
+
+        <div id="rewardEmoji" class="big">
+            🤗
+        </div>
+
+        <h2>
+            🎉 أحسنتِ!
+        </h2>
+
+        <p id="rewardText"></p>
+
+        <button
+            class="btn"
+            onclick="closeReward()">
+
+            إغلاق 💕
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    🌍 لعبة تعلم الجغرافيا
+
+    <br>
+
+    الجبال الالتوائية
+
+</footer>
+
+
+<script>
+
+let score = 0;
+
+
+/* أسماء الدلع */
+
+const names = [
+
+    "بيسة",
+    "بسبوسة",
+    "دلوعة",
+    "شطورة",
+    "حبيبة البابا",
+    "صغرونتي",
+    "الفرولة",
+    "الكيكة",
+    "الغزالة",
+    "السنيورة"
+
+];
+
+
+/* المكافآت */
+
+const rewards = [
+
+    ["🤗","حضن كبير ودافئ!"],
+
+    ["😘","قبلة حلوة على الخد الأيمن!"],
+
+    ["😘","قبلة حلوة على الخد الأيسر!"],
+
+    ["🥰","قبلة لطيفة على الجبين!"],
+
+    ["💋","قبلة حب لطيفة على الشفاه!"],
+
+    ["💋💋💋","كثير من القبلات على الوجه!"]
+
+];
+
+
+/* أسئلة الاختيار */
+
+function answer(button,correct,feedbackId){
+
+    const question = button.parentElement;
+
+    if(question.dataset.done === "true"){
+        return;
+    }
+
+    question.dataset.done = "true";
+
+    const buttons =
+        question.querySelectorAll(".option");
+
+    buttons.forEach(function(btn){
+        btn.disabled = true;
+    });
+
+    const feedback =
+        document.getElementById(feedbackId);
+
+    if(correct){
+
+        button.classList.add("correct");
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ إجابة صحيحة! شطورة!";
+
+        showReward();
+
+    }else{
+
+        button.classList.add("wrong");
+
+        feedback.textContent =
+            "❌ إجابة غير صحيحة. راجعي المعلومة.";
+
+    }
+
+}
+
+
+/* السؤال الخامس */
+
+function checkAnswer5(){
+
+    const input =
+        document.getElementById("answer5");
+
+    const feedback =
+        document.getElementById("feedback5");
+
+    if(input.dataset.done === "true"){
+        return;
+    }
+
+    const value =
+        input.value.trim();
+
+    if(value === ""){
+
+        feedback.textContent =
+            "⚠️ اكتبي الإجابة أولاً.";
+
+        return;
+
+    }
+
+    if(
+        value.includes("حصاروست") ||
+        value.includes("حصار وست")
+    ){
+
+        input.dataset.done = "true";
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ ممتاز! قمة حصاروست وارتفاعها ٣٦٠٠م.";
+
+        showReward();
+
+    }else{
+
+        feedback.textContent =
+            "❌ حاولي مرة أخرى. تذكري: قمة حصاروست.";
+
+    }
+
+}
+
+
+/* السؤال السادس */
+
+function checkAnswer6(){
+
+    const input =
+        document.getElementById("answer6");
+
+    const feedback =
+        document.getElementById("feedback6");
+
+    if(input.dataset.done === "true"){
+        return;
+    }
+
+    const value =
+        input.value.trim();
+
+    if(value === ""){
+
+        feedback.textContent =
+            "⚠️ اكتبي الإجابة أولاً.";
+
+        return;
+
+    }
+
+    if(value.includes("الجبل الأخضر")){
+
+        input.dataset.done = "true";
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ صحيح! الجبل الأخضر من أهم أجزاء مرتفعات عمان.";
+
+        showReward();
+
+    }else{
+
+        feedback.textContent =
+            "❌ الإجابة الصحيحة هي: الجبل الأخضر.";
+
+    }
+
+}
+
+
+/* Enter */
+
+document.getElementById("answer5").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            checkAnswer5();
+
+        }
+
+    }
+);
+
+
+document.getElementById("answer6").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            checkAnswer6();
+
+        }
+
+    }
+);
+
+
+/* تحديث النقاط */
+
+function updateScore(){
+
+    document.getElementById("score").textContent =
+        "النقاط: " + score;
+
+}
+
+
+/* المكافأة */
+
+function showReward(){
+
+    const randomName =
+        names[
+            Math.floor(
+                Math.random() * names.length
+            )
+        ];
+
+    const randomReward =
+        rewards[
+            Math.floor(
+                Math.random() * rewards.length
+            )
+        ];
+
+    document.getElementById("rewardEmoji").textContent =
+        randomReward[0];
+
+    document.getElementById("rewardText").textContent =
+        "أحسنتِ يا " +
+        randomName +
+        "! " +
+        randomReward[1];
+
+    document
+        .getElementById("reward")
+        .classList.add("show");
+
+
+    const box =
+        document.querySelector(".reward-box");
+
+
+    for(let i = 0; i < 15; i++){
+
+        const heart =
+            document.createElement("span");
+
+        heart.className =
+            "floating-heart";
+
+        heart.textContent =
+            "❤️";
+
+        heart.style.left =
+            Math.random() * 90 + "%";
+
+        heart.style.bottom =
+            "0px";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        box.appendChild(heart);
+
+        setTimeout(function(){
+
+            heart.remove();
+
+        },2000);
+
+    }
+
+}
+
+
+/* إغلاق المكافأة */
+
+function closeReward(){
+
+    document
+        .getElementById("reward")
+        .classList.remove("show");
+
+}
+
+</script>
+
+
+</body>
+</html>
