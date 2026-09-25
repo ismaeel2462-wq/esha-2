@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الجبال الانكسارية | جغرافيا</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#10131a;
+    color:#fff;
+    line-height:1.9;
+}
+
+header{
+    background:linear-gradient(135deg,#151a24,#252f43);
+    padding:28px 15px;
+    text-align:center;
+    border-bottom:2px solid #ff9800;
+}
+
+header h1{
+    color:#ffb52e;
+    font-size:30px;
+}
+
+header p{
+    color:#ddd;
+    margin-top:5px;
+}
+
+.container{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.card{
+    background:#191f2b;
+    border:1px solid #30394b;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+h2{
+    color:#ffb52e;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#ffd166;
+    margin:18px 0 8px;
+}
+
+p{
+    margin-bottom:15px;
+}
+
+.memory{
+    border-right:5px solid #ff9800;
+    background:#222a39;
+    padding:15px;
+    border-radius:12px;
+    margin:12px 0;
+}
+
+.example{
+    background:#172b32;
+    border-right:5px solid #00bcd4;
+    padding:15px;
+    border-radius:12px;
+    margin:12px 0;
+}
+
+.tip{
+    background:#29251a;
+    border:1px solid #6d5a25;
+    border-radius:12px;
+    padding:15px;
+    margin-top:15px;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:20px 0;
+}
+
+nav a,
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#ff9800;
+    color:#111;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:10px;
+    border:none;
+    cursor:pointer;
+    transition:.2s;
+}
+
+nav a:hover,
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.question{
+    background:#202737;
+    border-radius:14px;
+    padding:18px;
+    margin:15px 0;
+}
+
+.option{
+    display:block;
+    width:100%;
+    background:#2a3345;
+    border:1px solid #3d4960;
+    color:#fff;
+    text-align:right;
+    padding:12px;
+    border-radius:9px;
+    margin:8px 0;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.option:hover{
+    background:#37445c;
+}
+
+.option:disabled{
+    cursor:not-allowed;
+}
+
+.correct{
+    background:#176b42 !important;
+}
+
+.wrong{
+    background:#7a2730 !important;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #59657a;
+    background:#111722;
+    color:white;
+    margin:8px 0;
+    font-size:16px;
+}
+
+.feedback{
+    font-weight:bold;
+    margin-top:10px;
+    min-height:28px;
+}
+
+.score{
+    text-align:center;
+    font-size:24px;
+    color:#ffd166;
+    margin:20px;
+}
+
+.reward{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.reward.show{
+    display:flex;
+}
+
+.reward-box{
+    background:#202838;
+    border:2px solid #ff4d88;
+    border-radius:22px;
+    text-align:center;
+    padding:30px;
+    max-width:450px;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+}
+
+.reward-box .big{
+    font-size:60px;
+}
+
+.reward-box h2{
+    color:#ff77a8;
+}
+
+.hearts{
+    font-size:30px;
+    animation:heart 1s infinite alternate;
+}
+
+@keyframes heart{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.2);
+    }
+
+}
+
+.floating-heart{
+    position:absolute;
+    animation:floatHeart 2s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatHeart{
+
+    0%{
+        transform:translateY(30px) scale(.5);
+        opacity:0;
+    }
+
+    30%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-150px) scale(1.3);
+        opacity:0;
+    }
+
+}
+
+footer{
+    text-align:center;
+    color:#aaa;
+    padding:30px 15px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:23px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>⛰️ الجبال الانكسارية</h1>
+
+    <p>
+        القسم السادس — مظاهر السطح في الوطن العربي
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+<nav>
+
+    <a href="05-fold-mountains.html">
+        ⬅️ القسم السابق
+    </a>
+
+    <a href="07-fold-fault-volcanic.html">
+        القسم التالي ➡️
+    </a>
+
+</nav>
+
+
+<!-- المقدمة -->
+
+<div class="card">
+
+    <h2>⛰️ ما هي الجبال الانكسارية؟</h2>
+
+    <p>
+        تكونت الجبال الانكسارية على جانبي الانهدام
+        الآسيوي الأفريقي في الحقب الجيولوجي الثالث.
+    </p>
+
+    <p>
+        ومن أهم الجبال الانكسارية في الوطن العربي:
+    </p>
+
+    <div class="memory">
+
+        🏔️ جبال الصحراء الشرقية.
+
+        <br><br>
+
+        🏔️ جبال السراة.
+
+    </div>
+
+</div>
+
+
+<!-- الصحراء الشرقية -->
+
+<div class="card">
+
+    <h2>🇪🇬 جبال الصحراء الشرقية</h2>
+
+    <p>
+        تمتد جبال الصحراء الشرقية بمحاذاة الساحل الغربي
+        للبحر الأحمر في شرقي مصر والسودان.
+    </p>
+
+    <p>
+        وتتكون من صخور نارية قديمة ومتحولة.
+    </p>
+
+    <p>
+        وتنحدر بشدة نحو البحر الأحمر،
+        وبشكل تدريجي ناحية الغرب.
+    </p>
+
+    <p>
+        وتمتد شمالاً إلى شبه جزيرة سيناء.
+    </p>
+
+    <div class="example">
+
+        🏔️ من أهم قممها:
+
+        <br><br>
+
+        قمة سانت كاترين في جبل موسى.
+
+    </div>
+
+</div>
+
+
+<!-- حفظ الصحراء الشرقية -->
+
+<div class="card">
+
+    <h2>🧠 طريقة سهلة للحفظ</h2>
+
+    <div class="tip">
+
+        الصحراء الشرقية
+
+        <br><br>
+
+        📍 شرقي مصر والسودان.
+
+        <br>
+
+        🌊 بمحاذاة البحر الأحمر.
+
+        <br>
+
+        🪨 صخور نارية قديمة ومتحولة.
+
+        <br>
+
+        ⛰️ قمة سانت كاترين في جبل موسى.
+
+    </div>
+
+</div>
+
+
+<!-- جبال السراة -->
+
+<div class="card">
+
+    <h2>🇸🇦🇾🇪 جبال السراة</h2>
+
+    <p>
+        تقع جبال السراة في السعودية واليمن.
+    </p>
+
+    <p>
+        وتتجه من الشمال الغربي نحو الجنوب الشرقي.
+    </p>
+
+    <p>
+        وتتألف من صخور نارية قديمة.
+    </p>
+
+    <p>
+        وتقسم هذه المرتفعات شبه الجزيرة العربية
+        إلى ثلاثة أقسام.
+    </p>
+
+    <div class="memory">
+
+        1️⃣ مرتفعات الحجاز.
+
+        <br><br>
+
+        2️⃣ مرتفعات عسير.
+
+        <br><br>
+
+        3️⃣ جبال اليمن.
+
+    </div>
+
+</div>
+
+
+<!-- الحجاز -->
+
+<div class="card">
+
+    <h2>🏔️ مرتفعات الحجاز</h2>
+
+    <p>
+        تقع مرتفعات الحجاز في القسم الشمالي
+        من جبال السراة.
+    </p>
+
+    <p>
+        سميت بهذا الاسم لأنها تحجز بين
+        سهل تهامة في الغرب وهضبة نجد في الشرق.
+    </p>
+
+    <div class="memory">
+
+        🧠 الحجاز = يحجز بين:
+
+        <br><br>
+
+        سهل تهامة غرباً 🌊
+
+        <br>
+
+        هضبة نجد شرقاً 🏜️
+
+    </div>
+
+</div>
+
+
+<!-- عسير -->
+
+<div class="card">
+
+    <h2>🏔️ مرتفعات عسير</h2>
+
+    <p>
+        تقع مرتفعات عسير في الوسط.
+    </p>
+
+    <p>
+        وهي أكثر ارتفاعاً،
+        وتتميز بشدة وعورتها.
+    </p>
+
+    <p>
+        لذلك أطلق عليها اسم عسير
+        لصعوبة اجتيازها.
+    </p>
+
+    <div class="example">
+
+        🧠 كلمة عسير تساعدك على تذكر:
+
+        <br><br>
+
+        صعوبة اجتيازها بسبب شدة وعورتها.
+
+    </div>
+
+</div>
+
+
+<!-- جبال اليمن -->
+
+<div class="card">
+
+    <h2>🇾🇪 جبال اليمن</h2>
+
+    <p>
+        تقع جبال اليمن في الجنوب.
+    </p>
+
+    <p>
+        غطت الاندفاعات البركانية مساحات واسعة منها،
+        مما أعطاها شكل هضاب.
+    </p>
+
+    <div class="example">
+
+        🏔️ أهم قمة:
+
+        <br><br>
+
+        جبل النبي شعيب.
+
+        <br><br>
+
+        الارتفاع: <strong>٣٧٦٠م</strong>.
+
+        <br><br>
+
+        يقع على بعد نحو ٤٠ كم جنوب صنعاء.
+
+    </div>
+
+</div>
+
+
+<!-- مقارنة السراة -->
+
+<div class="card">
+
+    <h2>⚖️ أقسام جبال السراة</h2>
+
+    <div class="memory">
+
+        🟢 الحجاز
+
+        <br>
+
+        شمالاً
+
+        <br>
+
+        يحجز بين تهامة ونجد.
+
+    </div>
+
+    <div class="memory">
+
+        🟠 عسير
+
+        <br>
+
+        وسطاً
+
+        <br>
+
+        أكثر ارتفاعاً وشديدة الوعورة.
+
+    </div>
+
+    <div class="memory">
+
+        🔴 جبال اليمن
+
+        <br>
+
+        جنوباً
+
+        <br>
+
+        فيها جبل النبي شعيب ٣٧٦٠م.
+
+    </div>
+
+</div>
+
+
+<!-- الخلاصة -->
+
+<div class="card">
+
+    <h2>📚 خلاصة الجبال الانكسارية</h2>
+
+    <div class="memory">
+
+        تكونت الجبال الانكسارية على جانبي
+        الانهدام الآسيوي الأفريقي في الحقب الثالث.
+
+    </div>
+
+    <div class="memory">
+
+        جبال الصحراء الشرقية → شرقي مصر والسودان
+        → البحر الأحمر.
+
+    </div>
+
+    <div class="memory">
+
+        جبال السراة → السعودية واليمن.
+
+    </div>
+
+    <div class="memory">
+
+        السراة = الحجاز + عسير + جبال اليمن.
+
+    </div>
+
+    <div class="memory">
+
+        الحجاز → بين تهامة ونجد.
+
+    </div>
+
+    <div class="memory">
+
+        عسير → أكثر ارتفاعاً وشديدة الوعورة.
+
+    </div>
+
+    <div class="memory">
+
+        اليمن → جبل النبي شعيب ٣٧٦٠م.
+
+    </div>
+
+</div>
+
+
+<!-- الاختبار -->
+
+<div class="card">
+
+    <h2>🎮 اختبار الجبال الانكسارية</h2>
+
+    <div id="score" class="score">
+        النقاط: 0
+    </div>
+
+
+    <!-- سؤال 1 -->
+
+    <div class="question">
+
+        <h3>
+            1. في أي حقب تكونت الجبال الانكسارية؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback1')">
+
+            الحقب الجيولوجي الثالث
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback1')">
+
+            الحقب الأول فقط
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback1')">
+
+            العصر الحديث فقط
+
+        </button>
+
+        <div id="feedback1" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 2 -->
+
+    <div class="question">
+
+        <h3>
+            2. أين تمتد جبال الصحراء الشرقية؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback2')">
+
+            بمحاذاة الساحل الغربي للبحر الأحمر
+            في شرقي مصر والسودان
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback2')">
+
+            في المغرب العربي
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback2')">
+
+            في شمال العراق
+
+        </button>
+
+        <div id="feedback2" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 3 -->
+
+    <div class="question">
+
+        <h3>
+            3. ما أقسام جبال السراة؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback3')">
+
+            الحجاز وعسير وجبال اليمن
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback3')">
+
+            أطلس والعراق وعمان
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback3')">
+
+            دارفور والعوينات وتيبستي
+
+        </button>
+
+        <div id="feedback3" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 4 -->
+
+    <div class="question">
+
+        <h3>
+            4. لماذا سميت مرتفعات الحجاز بهذا الاسم؟
+        </h3>
+
+        <button
+            class="option"
+            onclick="answer(this,true,'feedback4')">
+
+            لأنها تحجز بين سهل تهامة وهضبة نجد
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback4')">
+
+            لأنها أكثر جبال الوطن العربي ارتفاعاً
+
+        </button>
+
+        <button
+            class="option"
+            onclick="answer(this,false,'feedback4')">
+
+            بسبب كثرة البراكين فيها
+
+        </button>
+
+        <div id="feedback4" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 5 -->
+
+    <div class="question">
+
+        <h3>
+            5. اكتبي اسم أعلى قمة في جبال اليمن
+            المذكورة في الدرس:
+        </h3>
+
+        <input
+            id="answer5"
+            type="text"
+            placeholder="اكتبي اسم القمة"
+        >
+
+        <button
+            class="btn"
+            onclick="checkAnswer5()">
+
+            تحقق ✅
+
+        </button>
+
+        <div id="feedback5" class="feedback"></div>
+
+    </div>
+
+
+    <!-- سؤال 6 -->
+
+    <div class="question">
+
+        <h3>
+            6. كم يبلغ ارتفاع جبل النبي شعيب؟
+        </h3>
+
+        <input
+            id="answer6"
+            type="text"
+            placeholder="اكتبي الارتفاع"
+        >
+
+        <button
+            class="btn"
+            onclick="checkAnswer6()">
+
+            تحقق ✅
+
+        </button>
+
+        <div id="feedback6" class="feedback"></div>
+
+    </div>
+
+
+</div>
+
+
+<nav>
+
+    <a href="05-fold-mountains.html">
+        ⬅️ الجبال الالتوائية
+    </a>
+
+    <a href="07-fold-fault-volcanic.html">
+        الجبال الالتوائية الانكسارية ➡️
+    </a>
+
+</nav>
+
+
+</div>
+
+
+<!-- المكافأة -->
+
+<div id="reward" class="reward">
+
+    <div class="reward-box">
+
+        <div class="hearts">
+            ❤️ 💕 ❤️
+        </div>
+
+        <div id="rewardEmoji" class="big">
+            🤗
+        </div>
+
+        <h2>
+            🎉 أحسنتِ!
+        </h2>
+
+        <p id="rewardText"></p>
+
+        <button
+            class="btn"
+            onclick="closeReward()">
+
+            إغلاق 💕
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    🌍 لعبة تعلم الجغرافيا
+
+    <br>
+
+    الجبال الانكسارية
+
+</footer>
+
+
+<script>
+
+let score = 0;
+
+
+/* أسماء الدلع */
+
+const names = [
+
+    "بيسة",
+    "بسبوسة",
+    "دلوعة",
+    "شطورة",
+    "حبيبة البابا",
+    "صغرونتي",
+    "الفرولة",
+    "الكيكة",
+    "الغزالة",
+    "السنيورة"
+
+];
+
+
+/* المكافآت */
+
+const rewards = [
+
+    ["🤗","حضن كبير ودافئ!"],
+
+    ["😘","قبلة حلوة على الخد الأيمن!"],
+
+    ["😘","قبلة حلوة على الخد الأيسر!"],
+
+    ["🥰","قبلة لطيفة على الجبين!"],
+
+    ["💋","قبلة حب لطيفة على الشفاه!"],
+
+    ["💋💋💋","كثير من القبلات على الوجه!"]
+
+];
+
+
+/* أسئلة الاختيار */
+
+function answer(button,correct,feedbackId){
+
+    const question = button.parentElement;
+
+    if(question.dataset.done === "true"){
+        return;
+    }
+
+    question.dataset.done = "true";
+
+    const buttons =
+        question.querySelectorAll(".option");
+
+    buttons.forEach(function(btn){
+        btn.disabled = true;
+    });
+
+    const feedback =
+        document.getElementById(feedbackId);
+
+
+    if(correct){
+
+        button.classList.add("correct");
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ إجابة صحيحة! شطورة!";
+
+        showReward();
+
+    }else{
+
+        button.classList.add("wrong");
+
+        feedback.textContent =
+            "❌ إجابة غير صحيحة. راجعي المعلومة.";
+
+    }
+
+}
+
+
+/* السؤال الخامس */
+
+function checkAnswer5(){
+
+    const input =
+        document.getElementById("answer5");
+
+    const feedback =
+        document.getElementById("feedback5");
+
+    if(input.dataset.done === "true"){
+        return;
+    }
+
+    const value =
+        input.value.trim();
+
+    if(value === ""){
+
+        feedback.textContent =
+            "⚠️ اكتبي الإجابة أولاً.";
+
+        return;
+
+    }
+
+    if(
+        value.includes("النبي شعيب") ||
+        value.includes("نبي شعيب")
+    ){
+
+        input.dataset.done = "true";
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ ممتاز! جبل النبي شعيب.";
+
+        showReward();
+
+    }else{
+
+        feedback.textContent =
+            "❌ حاولي مرة أخرى. تذكري: جبل النبي شعيب.";
+
+    }
+
+}
+
+
+/* السؤال السادس */
+
+function checkAnswer6(){
+
+    const input =
+        document.getElementById("answer6");
+
+    const feedback =
+        document.getElementById("feedback6");
+
+    if(input.dataset.done === "true"){
+        return;
+    }
+
+    const value =
+        input.value.trim()
+        .replace(/[^\d]/g,"");
+
+    if(value === ""){
+
+        feedback.textContent =
+            "⚠️ اكتبي الارتفاع.";
+
+        return;
+
+    }
+
+    if(value === "3760"){
+
+        input.dataset.done = "true";
+
+        score += 10;
+
+        updateScore();
+
+        feedback.textContent =
+            "✅ صحيح! ارتفاع جبل النبي شعيب ٣٧٦٠م.";
+
+        showReward();
+
+    }else{
+
+        feedback.textContent =
+            "❌ تذكري: ٣٧٦٠م.";
+
+    }
+
+}
+
+
+/* Enter */
+
+document.getElementById("answer5").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            checkAnswer5();
+
+        }
+
+    }
+);
+
+
+document.getElementById("answer6").addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            event.preventDefault();
+
+            checkAnswer6();
+
+        }
+
+    }
+);
+
+
+/* النقاط */
+
+function updateScore(){
+
+    document.getElementById("score").textContent =
+        "النقاط: " + score;
+
+}
+
+
+/* المكافأة */
+
+function showReward(){
+
+    const randomName =
+        names[
+            Math.floor(
+                Math.random() * names.length
+            )
+        ];
+
+    const randomReward =
+        rewards[
+            Math.floor(
+                Math.random() * rewards.length
+            )
+        ];
+
+    document.getElementById("rewardEmoji").textContent =
+        randomReward[0];
+
+    document.getElementById("rewardText").textContent =
+        "أحسنتِ يا " +
+        randomName +
+        "! " +
+        randomReward[1];
+
+    document
+        .getElementById("reward")
+        .classList.add("show");
+
+
+    const box =
+        document.querySelector(".reward-box");
+
+
+    for(let i = 0; i < 15; i++){
+
+        const heart =
+            document.createElement("span");
+
+        heart.className =
+            "floating-heart";
+
+        heart.textContent =
+            "❤️";
+
+        heart.style.left =
+            Math.random() * 90 + "%";
+
+        heart.style.bottom =
+            "0px";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 20) + "px";
+
+        box.appendChild(heart);
+
+        setTimeout(function(){
+
+            heart.remove();
+
+        },2000);
+
+    }
+
+}
+
+
+/* إغلاق المكافأة */
+
+function closeReward(){
+
+    document
+        .getElementById("reward")
+        .classList.remove("show");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

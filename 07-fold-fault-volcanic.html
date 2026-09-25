@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مظاهر السطح في الوطن العربي - الجبال الالتوائية الانكسارية والبركانية</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #10131a;
+            color: #f5f5f5;
+            line-height: 1.9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1c2533, #11151d);
+            padding: 30px 15px;
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            color: #ff9800;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #ddd;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 850px;
+            margin: 25px auto;
+        }
+
+        .card {
+            background: #191f2b;
+            border: 1px solid #303949;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            color: #ff9800;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .card h3 {
+            color: #ffc266;
+            margin: 18px 0 10px;
+        }
+
+        .card p {
+            color: #e5e5e5;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .important {
+            background: #202936;
+            border-right: 5px solid #ff9800;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .important strong {
+            color: #ff9800;
+        }
+
+        .example {
+            background: #17252b;
+            border-right: 5px solid #00bcd4;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .example strong {
+            color: #00d9f5;
+        }
+
+        ul {
+            padding-right: 25px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .memory {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .memory-box {
+            background: #222a38;
+            border: 1px solid #394457;
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .memory-box span {
+            display: block;
+            color: #ff9800;
+            font-size: 25px;
+            margin-bottom: 6px;
+        }
+
+        .question {
+            background: #202735;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            border: 1px solid #343d4d;
+        }
+
+        .question h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #171c26;
+            border: 1px solid #3c4658;
+            border-radius: 10px;
+            color: #eee;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: right;
+            font-size: 15px;
+        }
+
+        .option:hover {
+            border-color: #ff9800;
+            transform: translateX(-2px);
+        }
+
+        .option.correct {
+            background: #174d35;
+            border-color: #27d17f;
+        }
+
+        .option.wrong {
+            background: #542222;
+            border-color: #ff5555;
+        }
+
+        .typed {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            border: 1px solid #465166;
+            background: #11151d;
+            color: white;
+            outline: none;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .typed:focus {
+            border-color: #ff9800;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            background: #ff9800;
+            color: #111;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .check-btn:hover {
+            background: #ffb52e;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+
+        .score-box {
+            position: sticky;
+            top: 10px;
+            z-index: 50;
+            background: rgba(25,31,43,0.96);
+            border: 2px solid #ff9800;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+        }
+
+        .score-box span {
+            color: #ff9800;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .navigation a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            background: #202735;
+            color: #fff;
+            border: 1px solid #414b5e;
+            padding: 13px 10px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .navigation a:hover {
+            border-color: #ff9800;
+            color: #ff9800;
+        }
+
+        /* نافذة المكافأة */
+        .reward-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 20px;
+        }
+
+        .reward {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(145deg, #252c3a, #151923);
+            border: 2px solid #ff9800;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            overflow: hidden;
+            animation: pop 0.45s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .reward h2 {
+            color: #ff9800;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .reward-message {
+            font-size: 21px;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .reward-emoji {
+            font-size: 55px;
+            margin: 10px 0;
+            animation: heartBeat 1s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .close-reward {
+            background: #ff9800;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: floatHeart 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+            from {
+                transform: translateY(100px) scale(0.5);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-400px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 23px;
+            }
+
+            .card {
+                padding: 17px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>⛰️ مظاهر السطح في الوطن العربي</h1>
+    <p>الجبال الالتوائية الانكسارية والجبال البركانية</p>
+</header>
+
+<div class="container">
+
+    <div class="score-box">
+        ⭐ مجموع النقاط:
+        <span id="score">0</span>
+    </div>
+
+    <!-- مقدمة -->
+    <section class="card">
+        <h2>⛰️ الجبال الالتوائية الانكسارية</h2>
+
+        <p>
+            تمثلها سلاسل جبال بلاد الشام التي كانت في الأصل جبالًا
+            التوائية تكونت بفعل الحركة الألبية.
+        </p>
+
+        <p>
+            ثم تأثرت هذه الجبال بالانهدام الإفريقي الآسيوي،
+            فتشكلت سلسلتان متوازيتان على حافتي الانهدام.
+        </p>
+
+        <div class="important">
+            <strong>🧠 احفظي:</strong>
+            جبال بلاد الشام = جبال التوائية انكسارية.
+        </div>
+    </section>
+
+    <!-- الامتداد -->
+    <section class="card">
+        <h2>🗺️ أين تمتد؟</h2>
+
+        <p>
+            تمتد السلاسل الجبلية الالتوائية الانكسارية في:
+        </p>
+
+        <div class="memory">
+
+            <div class="memory-box">
+                <span>🇸🇾</span>
+                سورية
+            </div>
+
+            <div class="memory-box">
+                <span>🇱🇧</span>
+                لبنان
+            </div>
+
+            <div class="memory-box">
+                <span>🇵🇸</span>
+                فلسطين
+            </div>
+
+            <div class="memory-box">
+                <span>🇯🇴</span>
+                الأردن
+            </div>
+
+        </div>
+
+        <div class="important">
+            <strong>💡 فكرة مهمة:</strong>
+            تشكلت سلسلتان متوازيتان على حافتي الانهدام الإفريقي الآسيوي.
+        </div>
+    </section>
+
+    <!-- شكل السفوح -->
+    <section class="card">
+        <h2>📐 خصائص السفوح</h2>
+
+        <p>
+            تنحدر سفوح هاتين السلسلتين بشدة نحو المنطقة المنخفضة
+            بينهما، بينما تنحدر بلطف نحو الأطراف.
+        </p>
+
+        <div class="example">
+            <strong>📌 تذكري:</strong>
+            <br>
+            نحو المنطقة المنخفضة = انحدار شديد ⬇️
+            <br>
+            نحو الأطراف = انحدار لطيف ↘️
+        </div>
+    </section>
+
+    <!-- أهم الأجزاء -->
+    <section class="card">
+        <h2>🏔️ أهم أجزاء الجبال الالتوائية الانكسارية</h2>
+
+        <ul>
+            <li>جبال اللاذقية.</li>
+            <li>مرتفعات الأردن.</li>
+            <li>سلسلة جبال لبنان الغربية.</li>
+            <li>سلسلة جبال لبنان الشرقية.</li>
+        </ul>
+
+        <div class="memory">
+            <div class="memory-box">
+                <span>🏔️</span>
+                جبال اللاذقية
+            </div>
+
+            <div class="memory-box">
+                <span>⛰️</span>
+                مرتفعات الأردن
+            </div>
+
+            <div class="memory-box">
+                <span>🇱🇧</span>
+                لبنان الغربية
+            </div>
+
+            <div class="memory-box">
+                <span>🇱🇧</span>
+                لبنان الشرقية
+            </div>
+        </div>
+    </section>
+
+    <!-- الجبال البركانية -->
+    <section class="card">
+        <h2>🌋 الجبال البركانية</h2>
+
+        <p>
+            تظهر الجبال البركانية على شكل كتل منفردة وصبات بازلتية.
+        </p>
+
+        <div class="important">
+            <strong>🌋 المثال المهم:</strong>
+            جبل العرب في سورية.
+        </div>
+
+        <div class="example">
+            <strong>🧠 سؤال سريع:</strong>
+            عندما ترين "جبل العرب في سورية" تذكري مباشرة:
+            <br>
+            <b>الجبال البركانية 🌋</b>
+        </div>
+    </section>
+
+    <!-- ملخص -->
+    <section class="card">
+        <h2>📚 ملخص للحفظ السريع</h2>
+
+        <div class="memory">
+
+            <div class="memory-box">
+                <span>⛰️</span>
+                <b>الالتوائية الانكسارية</b>
+                <br>
+                جبال بلاد الشام
+            </div>
+
+            <div class="memory-box">
+                <span>↔️</span>
+                <b>عدد السلاسل</b>
+                <br>
+                سلسلتان متوازيتان
+            </div>
+
+            <div class="memory-box">
+                <span>🗺️</span>
+                <b>الامتداد</b>
+                <br>
+                سورية، لبنان، فلسطين، الأردن
+            </div>
+
+            <div class="memory-box">
+                <span>🌋</span>
+                <b>البركانية</b>
+                <br>
+                كتل منفردة وصبات بازلتية
+            </div>
+
+        </div>
+
+        <div class="important">
+            <strong>⭐ قاعدة ذهبية للحفظ:</strong>
+            <br><br>
+            بلاد الشام → التوائية انكسارية ⛰️
+            <br>
+            جبل العرب → بركانية 🌋
+        </div>
+    </section>
+
+    <!-- الاختبار -->
+    <section class="card">
+        <h2>🎯 اختبار سريع</h2>
+
+        <!-- سؤال 1 -->
+        <div class="question">
+            <h3>1️⃣ ما نوع جبال بلاد الشام؟</h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبال التوائية انكسارية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال قديمة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال بركانية فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال انكسارية فقط
+            </button>
+        </div>
+
+        <!-- سؤال 2 -->
+        <div class="question">
+            <h3>2️⃣ كم سلسلة متوازية تشكلت على حافتي الانهدام؟</h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                سلسلة واحدة
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                سلسلتان
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                ثلاث سلاسل
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                أربع سلاسل
+            </button>
+        </div>
+
+        <!-- سؤال 3 -->
+        <div class="question">
+            <h3>3️⃣ أي مما يلي من أجزاء الجبال الالتوائية الانكسارية؟</h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال أطلس
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبال اللاذقية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال دارفور
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال تيبستي
+            </button>
+        </div>
+
+        <!-- سؤال 4 -->
+        <div class="question">
+            <h3>4️⃣ كيف تنحدر السفوح نحو المنطقة المنخفضة بين السلسلتين؟</h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                بشدة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بلطف
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                لا تنحدر
+            </button>
+        </div>
+
+        <!-- سؤال 5 -->
+        <div class="question">
+            <h3>5️⃣ جبل العرب في سورية من الجبال:</h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                القديمة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الالتوائية
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                البركانية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الانكسارية فقط
+            </button>
+        </div>
+    </section>
+
+    <!-- أسئلة كتابية -->
+    <section class="card">
+        <h2>✍️ أسئلة تحتاج كتابة</h2>
+
+        <!-- كتابة 1 -->
+        <div class="question">
+            <h3>
+                1️⃣ ماذا تمثل جبال بلاد الشام من حيث نشأتها؟
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer1"
+                placeholder="اكتبي الإجابة هنا..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(1)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result1"></div>
+        </div>
+
+        <!-- كتابة 2 -->
+        <div class="question">
+            <h3>
+                2️⃣ اذكري مثالًا على الجبال البركانية في الوطن العربي.
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer2"
+                placeholder="اكتبي الإجابة هنا..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(2)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result2"></div>
+        </div>
+
+        <!-- كتابة 3 -->
+        <div class="question">
+            <h3>
+                3️⃣ اذكري دولتين تمتد فيهما الجبال الالتوائية الانكسارية.
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer3"
+                placeholder="مثال: سورية ولبنان"
+            >
+
+            <button class="check-btn" onclick="checkAnswer(3)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result3"></div>
+        </div>
+
+        <!-- كتابة 4 -->
+        <div class="question">
+            <h3>
+                4️⃣ ماذا تشكل على حافتي الانهدام الإفريقي الآسيوي؟
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer4"
+                placeholder="اكتبي الإجابة هنا..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(4)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result4"></div>
+        </div>
+    </section>
+
+    <!-- نصيحة -->
+    <section class="card">
+        <h2>💡 طريقة سهلة للحفظ</h2>
+
+        <p>
+            تخيلي الوطن العربي وكأنك تراجعينه في خريطة صغيرة:
+        </p>
+
+        <div class="important">
+            ⛰️ بلاد الشام = التوائية انكسارية
+            <br><br>
+            ↔️ حافتا الانهدام = سلسلتان متوازيتان
+            <br><br>
+            🇸🇾🇱🇧🇵🇸🇯🇴 = سورية ولبنان وفلسطين والأردن
+            <br><br>
+            🌋 جبل العرب = بركاني
+        </div>
+    </section>
+
+    <!-- التنقل -->
+    <div class="navigation">
+        <a href="06-fault-mountains.html">
+            ⬅️ السابق
+        </a>
+
+        <a href="08-plateaus.html">
+            التالي ➡️
+        </a>
+    </div>
+
+</div>
+
+<!-- نافذة المكافأة -->
+<div class="reward-overlay" id="rewardOverlay">
+
+    <div class="reward" id="rewardBox">
+
+        <div class="reward-emoji" id="rewardEmoji">
+            💖
+        </div>
+
+        <h2>🎉 أحسنتِ!</h2>
+
+        <div class="reward-message" id="rewardMessage">
+            شطورة! 💕
+        </div>
+
+        <button class="close-reward" onclick="closeReward()">
+            متابعة الدراسة 📚
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    let score = 0;
+
+    let answeredQuestions = new Set();
+
+    const petNames = [
+        "بيسة",
+        "بسبوسة",
+        "دلوعة",
+        "شطورة",
+        "حبيبة البابا",
+        "صغرونتي",
+        "الفرولة",
+        "الكيكة",
+        "الغزالة",
+        "السنيورة"
+    ];
+
+   const rewards = [
+    {
+        emoji: "🤗",
+        text: "تستاهلي حضن كبير يا"
+    },
+    {
+        emoji: "😘",
+        text: "إلك بوسة حلوة يا"
+    },
+    {
+        emoji: "🥰",
+        text: "بوسة على خدك اليمين يا"
+    },
+    {
+        emoji: "😍",
+        text: "بوسة على خدك اليسار يا"
+    },
+    {
+        emoji: "💋",
+        text: "بوسة على جبينك يا"
+    },
+    {
+        emoji: "💋",
+        text: "بوسة على شفايفك يا"
+    },
+    {
+        emoji: "💋",
+        text: "بوسات كثيرة على وجهك يا"
+    }
+];
+
+    function updateScore() {
+        document.getElementById("score").textContent = score;
+    }
+
+    function mcq(button, correct) {
+
+        const question = button.closest(".question");
+
+        if (question.dataset.answered === "true") {
+            return;
+        }
+
+        question.dataset.answered = "true";
+
+        const buttons = question.querySelectorAll(".option");
+
+        buttons.forEach(btn => {
+            btn.disabled = true;
+        });
+
+        if (correct) {
+
+            button.classList.add("correct");
+
+            score += 10;
+            updateScore();
+
+            showReward();
+
+        } else {
+
+            button.classList.add("wrong");
+
+            buttons.forEach(btn => {
+
+                if (btn.getAttribute("onclick").includes("true")) {
+                    btn.classList.add("correct");
+                }
+
+            });
+
+        }
+    }
+
+    function normalize(text) {
+
+        return text
+            .toLowerCase()
+            .replace(/[ًٌٍَُِّْـ]/g, "")
+            .replace(/أ|إ|آ/g, "ا")
+            .replace(/ة/g, "ه")
+            .replace(/ى/g, "ي")
+            .trim();
+    }
+
+    function checkAnswer(number) {
+
+        if (answeredQuestions.has(number)) {
+            return;
+        }
+
+        const input = document.getElementById("answer" + number);
+        const result = document.getElementById("result" + number);
+
+        const answer = normalize(input.value);
+
+        let correct = false;
+
+        if (number === 1) {
+
+            correct =
+                answer.includes("التوائيه انكساريه") ||
+                answer.includes("التوائية انكسارية") ||
+                (answer.includes("التوائيه") && answer.includes("انكساريه"));
+
+        }
+
+        if (number === 2) {
+
+            correct =
+                answer.includes("جبل العرب") ||
+                answer.includes("العرب");
+        }
+
+        if (number === 3) {
+
+            const countries = [
+                "سوري",
+                "لبنان",
+                "فلسطين",
+                "الاردن",
+                "الأردن"
+            ];
+
+            let count = 0;
+
+            countries.forEach(country => {
+
+                if (answer.includes(normalize(country))) {
+                    count++;
+                }
+
+            });
+
+            correct = count >= 2;
+        }
+
+        if (number === 4) {
+
+            correct =
+                answer.includes("سلسلتان") ||
+                answer.includes("سلسلتين") ||
+                answer.includes("سلسلتان متوازيتان") ||
+                answer.includes("سلسلتين متوازيتين");
+
+        }
+
+        if (correct) {
+
+            answeredQuestions.add(number);
+
+            result.textContent = "✅ إجابة صحيحة!";
+
+            result.style.color = "#27d17f";
+
+            score += 10;
+
+            updateScore();
+
+            showReward();
+
+        } else {
+
+            result.textContent =
+                "❌ حاولي مرة أخرى، وراجعي الملخص 🧠";
+
+            result.style.color = "#ff6666";
+        }
+    }
+
+    function showReward() {
+
+        const overlay =
+            document.getElementById("rewardOverlay");
+
+        const message =
+            document.getElementById("rewardMessage");
+
+        const emoji =
+            document.getElementById("rewardEmoji");
+
+        const randomPet =
+            petNames[Math.floor(Math.random() * petNames.length)];
+
+        const randomReward =
+            rewards[Math.floor(Math.random() * rewards.length)];
+
+        emoji.textContent = randomReward.emoji;
+
+        message.innerHTML =
+            randomReward.text +
+            " <strong>" +
+            randomPet +
+            "</strong> 💕";
+
+        overlay.style.display = "flex";
+
+        createHearts();
+    }
+
+    function closeReward() {
+
+        document.getElementById("rewardOverlay").style.display =
+            "none";
+    }
+
+    function createHearts() {
+
+        const box =
+            document.getElementById("rewardBox");
+
+        for (let i = 0; i < 12; i++) {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.textContent =
+                Math.random() > 0.5 ? "❤️" : "💗";
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+            heart.style.bottom = "0px";
+
+            heart.style.animationDelay =
+                Math.random() * 0.8 + "s";
+
+            box.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3500);
+        }
+    }
+
+    /* الضغط على Enter في أسئلة الكتابة */
+
+    document.querySelectorAll(".typed").forEach(input => {
+
+        input.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                const number =
+                    this.id.replace("answer", "");
+
+                checkAnswer(Number(number));
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>اختبار شامل - مظاهر السطح في الوطن العربي</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        body {
+            background: #10131a;
+            color: #fff;
+            line-height: 1.8;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #151b27, #252f42);
+            padding: 30px 15px;
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+        }
+
+        header h1 {
+            color: #ff9800;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #ddd;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .score-box {
+            position: sticky;
+            top: 10px;
+            z-index: 50;
+            background: #191f2b;
+            border: 2px solid #ff9800;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px #0008;
+        }
+
+        .score-box span {
+            color: #ff9800;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .level {
+            background: #191f2b;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 30px;
+            border: 1px solid #343d4f;
+            box-shadow: 0 5px 20px #0006;
+        }
+
+        .level-title {
+            text-align: center;
+            color: #ff9800;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .level-description {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            background: #111722;
+            border: 1px solid #30394b;
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            border: 1px solid #3d4658;
+            background: #202735;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .2s;
+        }
+
+        .option:hover {
+            background: #2c3546;
+            border-color: #ff9800;
+            transform: translateY(-1px);
+        }
+
+        .option.correct {
+            background: #174d31;
+            border-color: #36d477;
+        }
+
+        .option.wrong {
+            background: #5b2020;
+            border-color: #ff5252;
+        }
+
+        .typed {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            border: 2px solid #374154;
+            background: #171d28;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .typed:focus {
+            border-color: #ff9800;
+        }
+
+        .check-btn {
+            background: #ff9800;
+            color: #111;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .check-btn:hover {
+            background: #ffb52e;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+
+        .correct-text {
+            color: #35db78;
+        }
+
+        .wrong-text {
+            color: #ff5d5d;
+        }
+
+        .final-box {
+            display: none;
+            background: linear-gradient(135deg, #1c2533, #202d40);
+            border: 2px solid #ff9800;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .final-box h2 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+
+        .final-score {
+            font-size: 38px;
+            color: #fff;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        .message {
+            color: #ddd;
+            font-size: 18px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .navigation a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background: #242d3d;
+            border: 1px solid #ff9800;
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .navigation a:hover {
+            background: #ff9800;
+            color: #111;
+        }
+
+        /* Reward */
+
+        .reward-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.78);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .reward-box {
+            position: relative;
+            width: min(90%, 430px);
+            background: linear-gradient(145deg, #202a3a, #151a24);
+            border: 3px solid #ff9800;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 0 40px #ff980055;
+            animation: pop .45s ease;
+        }
+
+        .reward-box h2 {
+            color: #ff9800;
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .reward-name {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .reward-text {
+            color: #ffd98a;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .close-reward {
+            border: none;
+            background: #ff9800;
+            color: #111;
+            padding: 10px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: floatHeart 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(.5);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.08);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) scale(.7) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-700px) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 23px;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .level {
+                padding: 15px;
+            }
+
+            .question h3 {
+                font-size: 16px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌍 الاختبار الشامل</h1>
+    <p>مظاهر السطح في الوطن العربي</p>
+</header>
+
+<div class="container">
+
+    <div class="score-box">
+        🏆 مجموع النقاط:
+        <span id="score">0</span>
+        / 300
+    </div>
+
+    <!-- المستوى الأول -->
+
+    <section class="level">
+
+        <h2 class="level-title">🟢 المستوى الأول — سهل</h2>
+
+        <p class="level-description">
+            أسئلة أساسية للتأكد من فهم المعلومات الرئيسية.
+        </p>
+
+        <!-- 1 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣ ما الأشكال الرئيسة لتضاريس الوطن العربي؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                السواحل والسهول والهضاب والجبال
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الأنهار والبحيرات فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الصحارى فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الغابات فقط
+            </button>
+
+        </div>
+
+        <!-- 2 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣ بماذا تتكون معظم السواحل والسهول الساحلية في الوطن العربي؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                النشاط البركاني فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                الحت والترسيب البحري ورواسب الأنهار
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الجليد فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الزلازل فقط
+            </button>
+
+        </div>
+
+        <!-- 3 -->
+
+        <div class="question">
+
+            <h3>
+                3️⃣ على جوانب أي أنهار كبرى تنتشر السهول الفيضية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                النيل ودجلة والفرات
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الأمازون والكونغو
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                المسيسيبي والراين
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                السند والغانج
+            </button>
+
+        </div>
+
+        <!-- 4 -->
+
+        <div class="question">
+
+            <h3>
+                4️⃣ ما أبرز ما تتميز به السهول الفيضية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                قلة الخصوبة
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                الخصوبة وتركز الزراعة والأنشطة البشرية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                ارتفاعها الشديد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                كثرة الجبال
+            </button>
+
+        </div>
+
+        <!-- 5 -->
+
+        <div class="question">
+
+            <h3>
+                5️⃣ ما أعلى قمم جبال أطلس؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل شمر
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبل طوبقال
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل موسى
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل العرب
+            </button>
+
+        </div>
+
+        <!-- 6 -->
+
+        <div class="question">
+
+            <h3>
+                6️⃣ اكتب اسم الجبل الذي يقع عند نقطة الالتقاء بين الحدود الليبية والمصرية.
+            </h3>
+
+            <input class="typed" id="t1" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(1)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r1"></div>
+
+        </div>
+
+        <!-- 7 -->
+
+        <div class="question">
+
+            <h3>
+                7️⃣ اكتب اسم الصحراء التي تفصل بين هضبة نجد وهضبة حضرموت.
+            </h3>
+
+            <input class="typed" id="t2" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(2)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r2"></div>
+
+        </div>
+
+        <!-- 8 -->
+
+        <div class="question">
+
+            <h3>
+                8️⃣ ما الجبل البركاني المذكور في سورية؟
+            </h3>
+
+            <input class="typed" id="t3" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(3)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r3"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- المستوى الثاني -->
+
+    <section class="level">
+
+        <h2 class="level-title">🟡 المستوى الثاني — متوسط</h2>
+
+        <p class="level-description">
+            هنا تبدأ الأسئلة التي تحتاج إلى تذكر التفاصيل والربط بين المعلومات.
+        </p>
+
+        <!-- 9 -->
+
+        <div class="question">
+
+            <h3>
+                9️⃣ أي سواحل عربية تتميز بكثرة التعاريج ووجود خلجان تشبه الفيوردات؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                سواحل موريتانيا
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                سواحل عمان
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سواحل ليبيا
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سواحل السودان
+            </button>
+
+        </div>
+
+        <!-- 10 -->
+
+        <div class="question">
+
+            <h3>
+                🔟 أين تقع جزيرة أرواد؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                قبالة الساحل السوري
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                قبالة ساحل عمان
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                قبالة ساحل الصومال
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                قبالة الساحل المغربي
+            </button>
+
+        </div>
+
+        <!-- 11 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣1️⃣ ما السهول الساحلية التي تُعرف باسم سهول تهامة؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                السهول الساحلية الغربية لشبه الجزيرة العربية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سهول العراق
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سهول المغرب
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سهول السودان الشرقية
+            </button>
+
+        </div>
+
+        <!-- 12 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣2️⃣ لماذا سميت مرتفعات الحجاز بهذا الاسم؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                لأنها شديدة البرودة
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                لأنها تحجز بين سهل تهامة وهضبة نجد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                لأنها تحوي أكبر صحراء
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                لأنها تقع قرب الخليج العربي
+            </button>
+
+        </div>
+
+        <!-- 13 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣3️⃣ ما الجبال التي تقع في شمالي العراق وشماله الشرقي؟
+            </h3>
+
+            <input class="typed" id="t4" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(4)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r4"></div>
+
+        </div>
+
+        <!-- 14 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣4️⃣ اكتب اسم القمة الموجودة في جبال العراق والتي يبلغ ارتفاعها نحو 3600م.
+            </h3>
+
+            <input class="typed" id="t5" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(5)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r5"></div>
+
+        </div>
+
+        <!-- 15 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣5️⃣ ما الجبال التي تمتد بمحاذاة الساحل الغربي للبحر الأحمر في شرقي مصر والسودان؟
+            </h3>
+
+            <input class="typed" id="t6" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(6)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r6"></div>
+
+        </div>
+
+        <!-- 16 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣6️⃣ ما القمة الأعلى في جبال اليمن المذكورة في الدرس؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                طوبقال
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                حصاروست
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبل النبي شعيب
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل العرب
+            </button>
+
+        </div>
+
+        <!-- 17 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣7️⃣ اكتب اسم الهضبة التي تقع في وسط الهضاب العربية الشرقية.
+            </h3>
+
+            <input class="typed" id="t7" placeholder="اكتب الإجابة هنا">
+
+            <button class="check-btn" onclick="checkAnswer(7)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r7"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- المستوى الثالث -->
+
+    <section class="level">
+
+        <h2 class="level-title">🔴 المستوى الثالث — صعب</h2>
+
+        <p class="level-description">
+            🔥 التحدي الحقيقي! تحتاج هذه المرحلة إلى الربط بين المعلومات وفهم أنواع التضاريس.
+        </p>
+
+        <!-- 18 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣8️⃣ ما السبب الجيولوجي الرئيس لتشكل الجبال الالتوائية في الوطن العربي؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                ترسيب الأنهار
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                تقارب الصفيحة الأفريقية والأوراسية وما نتج عنه من حركات التوائية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الرياح فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                تراكم الرمال
+            </button>
+
+        </div>
+
+        <!-- 19 -->
+
+        <div class="question">
+
+            <h3>
+                1️⃣9️⃣ أي نوع من الجبال تمثله سلاسل جبال بلاد الشام؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال قديمة فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال بركانية فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبال التوائية انكسارية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال رملية
+            </button>
+
+        </div>
+
+        <!-- 20 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣0️⃣ ما الجبل الذي يمثل الجبال البركانية في الدرس؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبل العرب في سورية
+            </button>
+
+           <button class="option" onclick="mcq(this, false)">
+                جبل طوبقال
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل النبي شعيب
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                جبل العرب في سورية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبل شمر
+            </button>
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣1️⃣ ما الهضبتان الرئيسيتان اللتان انقسمت إليهما الكتلة الهضابية العربية؟
+            </h3>
+
+            <input class="typed" id="t8" placeholder="اكتب الهضبتين">
+
+            <button class="check-btn" onclick="checkAnswer(8)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r8"></div>
+
+        </div>
+
+
+        <!-- 22 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣2️⃣ ما المدى التقريبي لارتفاع الهضاب العربية الشرقية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                50 - 100م
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                500 - 900م
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                2000 - 3000م
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                أكثر من 5000م
+            </button>
+
+        </div>
+
+
+        <!-- 23 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣3️⃣ ما الصحارى الثلاث المذكورة ضمن الهضاب العربية الشرقية؟
+            </h3>
+
+            <input class="typed" id="t9" placeholder="اكتب أسماء الصحارى">
+
+            <button class="check-btn" onclick="checkAnswer(9)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r9"></div>
+
+        </div>
+
+
+        <!-- 24 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣4️⃣ ما الصحراء التي تشغل نحو ربع مساحة شبه الجزيرة العربية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                صحراء النفوذ
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                صحراء الربع الخالي
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                صحراء الدهناء
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الصحراء الكبرى
+            </button>
+
+        </div>
+
+
+        <!-- 25 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣5️⃣ ما المقصود بالعرق في المظاهر الصحراوية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                تراكمات رملية وكثبان رملية ناعمة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                صخور نارية فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                أنهار دائمة الجريان
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                جبال التوائية
+            </button>
+
+        </div>
+
+
+        <!-- 26 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣6️⃣ ما المقصود بالرق؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                الصحارى الرملية فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                الصحارى ذات التكوينات الحصوية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                السهول الفيضية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                السواحل الصخرية
+            </button>
+
+        </div>
+
+
+        <!-- 27 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣7️⃣ ما المقصود بالحمادة؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                سهول طينية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                كثبان رملية
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                صحارى حجرية وصخرية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                سهول ساحلية
+            </button>
+
+        </div>
+
+
+        <!-- 28 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣8️⃣ اشرح باختصار الفرق بين السهول الساحلية والسهول الفيضية.
+            </h3>
+
+            <input
+                class="typed"
+                id="t10"
+                placeholder="اكتب إجابتك"
+            >
+
+            <button class="check-btn" onclick="checkAnswer(10)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r10"></div>
+
+        </div>
+
+
+        <!-- 29 -->
+
+        <div class="question">
+
+            <h3>
+                2️⃣9️⃣ اكتب مثالين على الجبال الانكسارية في الوطن العربي.
+            </h3>
+
+            <input
+                class="typed"
+                id="t11"
+                placeholder="اكتب مثالين"
+            >
+
+            <button class="check-btn" onclick="checkAnswer(11)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r11"></div>
+
+        </div>
+
+
+        <!-- 30 -->
+
+        <div class="question">
+
+            <h3>
+                3️⃣0️⃣ اشرح لماذا تتميز السهول الفيضية بخصوبة عالية وتركز الأنشطة البشرية فيها.
+            </h3>
+
+            <input
+                class="typed"
+                id="t12"
+                placeholder="اكتب إجابتك"
+            >
+
+            <button class="check-btn" onclick="checkAnswer(12)">
+                تحقق ✅
+            </button>
+
+            <div class="result" id="r12"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- النتيجة النهائية -->
+
+    <div class="final-box" id="finalBox">
+
+        <h2>🎉 انتهيت من الاختبار!</h2>
+
+        <div class="final-score">
+            <span id="finalScore">0</span> / 300
+        </div>
+
+        <p class="message" id="finalMessage"></p>
+
+    </div>
+
+
+    <!-- أزرار التنقل -->
+
+    <div class="navigation">
+
+        <a href="08-plateaus.html">
+            ⬅️ العودة إلى درس الهضاب
+        </a>
+
+        <a href="index.html">
+            🏠 الصفحة الرئيسية
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     نافذة المكافأة
+========================= -->
+
+<div class="reward-overlay" id="rewardOverlay">
+
+    <div class="reward-box">
+
+        <h2>🎉 إجابة صحيحة! ❤️</h2>
+
+        <div class="reward-name" id="rewardName">
+            شطورة
+        </div>
+
+        <div class="reward-text" id="rewardText">
+            💋 بوسة على خدك اليمين
+        </div>
+
+        <button
+            class="close-reward"
+            onclick="closeReward()"
+        >
+            حبيبتي 💕
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       النقاط
+    ========================= */
+
+    let score = 0;
+
+    let answered = new Set();
+
+
+    /* =========================
+       أسماء الدلع
+    ========================= */
+
+    const petNames = [
+
+        "بيسة",
+        "بسبوسة",
+        "دلوعة",
+        "شطورة",
+        "حبيبة البابا",
+        "صغرونتي",
+        "الفرولة",
+        "الكيكة",
+        "الغزالة",
+        "السنيورة"
+
+    ];
+
+
+    /* =========================
+       المكافآت
+    ========================= */
+
+    const rewards = [
+
+        "🤗 حضن كبير إلك",
+
+        "💋 بوسة على خدك اليمين",
+
+        "💋 بوسة على خدك اليسار",
+
+        "💋 بوسة على جبينك",
+
+        "💋 بوسة على شفايفك",
+
+        "💋💋💋 بوسات كثيرة على وجهك",
+
+        "❤️ حضن وبوسة لأنك شطورة",
+
+        "🥰 بوسة وحضن للدلوعة",
+
+        "💋💋 بوسات على كل خد",
+
+        "❤️ قبلة وحضن طويل"
+
+    ];
+
+
+    /* =========================
+       إضافة النقاط
+    ========================= */
+
+    function addPoint(key) {
+
+        if (answered.has(key)) {
+
+            return false;
+
+        }
+
+        answered.add(key);
+
+        score += 10;
+
+        document.getElementById("score").textContent = score;
+
+        return true;
+
+    }
+
+
+    /* =========================
+       أسئلة الاختيار من متعدد
+    ========================= */
+
+    function mcq(button, correct) {
+
+        const question =
+            button.closest(".question");
+
+
+        if (question.dataset.done === "true") {
+
+            return;
+
+        }
+
+
+        question.dataset.done = "true";
+
+
+        const options =
+            question.querySelectorAll(".option");
+
+
+        options.forEach(option => {
+
+            option.disabled = true;
+
+        });
+
+
+        if (correct) {
+
+            button.classList.add("correct");
+
+
+            if (addPoint(question)) {
+
+                showReward();
+
+            }
+
+        }
+
+        else {
+
+            button.classList.add("wrong");
+
+
+            options.forEach(option => {
+
+                const onclick =
+                    option.getAttribute("onclick");
+
+                if (
+                    onclick &&
+                    onclick.includes("true")
+                ) {
+
+                    option.classList.add("correct");
+
+                }
+
+            });
+
+        }
+
+
+        checkFinished();
+
+    }
+
+
+    /* =========================
+       تنظيف الإجابات
+    ========================= */
+
+    function normalize(text) {
+
+        return text
+
+            .toLowerCase()
+
+            .trim()
+
+            .replace(/[ًٌٍَُِّْـ]/g, "")
+
+            .replace(/أ|إ|آ/g, "ا")
+
+            .replace(/ة/g, "ه")
+
+            .replace(/ى/g, "ي");
+
+    }
+
+
+    /* =========================
+       الأسئلة الكتابية
+    ========================= */
+
+    function checkAnswer(number) {
+
+        const input =
+            document.getElementById("t" + number);
+
+        const result =
+            document.getElementById("r" + number);
+
+
+        if (input.dataset.done === "true") {
+
+            return;
+
+        }
+
+
+        const answer =
+            normalize(input.value);
+
+
+        if (!answer) {
+
+            result.innerHTML =
+                "<span class='wrong-text'>اكتبي الإجابة أولاً ❤️</span>";
+
+            return;
+
+        }
+
+
+        let correct = false;
+
+
+        /* السؤال 1
+           جبل العوينات
+        */
+
+        if (number === 1) {
+
+            correct =
+                answer.includes("العوينات");
+
+        }
+
+
+        /* السؤال 2
+           الربع الخالي
+        */
+
+        else if (number === 2) {
+
+            correct =
+                answer.includes("الربع الخالي") ||
+                answer.includes("الربعالخالي");
+
+        }
+
+
+        /* السؤال 3
+           جبل العرب
+        */
+
+        else if (number === 3) {
+
+            correct =
+                answer.includes("العرب");
+
+        }
+
+
+        /* السؤال 4
+           جبال العراق
+        */
+
+        else if (number === 4) {
+
+            correct =
+                answer.includes("جبال العراق") ||
+                answer === "العراق";
+
+        }
+
+
+        /* السؤال 5
+           حصاروست
+        */
+
+        else if (number === 5) {
+
+            correct =
+                answer.includes("حصاروست");
+
+        }
+
+
+        /* السؤال 6
+           جبال الصحراء الشرقية
+        */
+
+        else if (number === 6) {
+
+            correct =
+
+                answer.includes("الصحراء الشرقية") ||
+
+                answer.includes("الصحراءالشرقية") ||
+
+                answer.includes("جبال الصحراء الشرقية") ||
+
+                answer.includes("جبال الصحراءالشرقية");
+
+        }
+
+
+        /* السؤال 7
+           هضبة نجد
+        */
+
+        else if (number === 7) {
+
+            correct =
+                answer.includes("نجد");
+
+        }
+
+
+        /* السؤال 8
+           الهضبة العربية الشرقية والغربية
+        */
+
+        else if (number === 8) {
+
+            const eastern =
+
+                answer.includes("شرقي") ||
+
+                answer.includes("اسيوي");
+
+
+            const western =
+
+                answer.includes("غربي") ||
+
+                answer.includes("افريقي");
+
+
+            correct =
+                eastern && western;
+
+        }
+
+
+        /* السؤال 9
+           النفوذ + الربع الخالي + الدهناء
+        */
+
+        else if (number === 9) {
+
+            const nafud =
+
+                answer.includes("النفود") ||
+
+                answer.includes("النفوذ");
+
+
+            const rubAlKhali =
+
+                answer.includes("الربع الخالي") ||
+
+                answer.includes("الربعالخالي");
+
+
+            const dahna =
+
+                answer.includes("الدهناء") ||
+
+                answer.includes("الدهنه");
+
+
+            correct =
+                nafud &&
+                rubAlKhali &&
+                dahna;
+
+        }
+
+
+        /* السؤال 10
+           الفرق بين السهول
+        */
+
+        else if (number === 10) {
+
+            const coastal =
+
+                answer.includes("الساحلي") ||
+
+                answer.includes("الساحليه") ||
+
+                answer.includes("السواحل");
+
+
+            const flood =
+
+                answer.includes("الفيض") ||
+
+                answer.includes("النهر") ||
+
+                answer.includes("الانهار") ||
+
+                answer.includes("الترسيب");
+
+
+            correct =
+                coastal && flood;
+
+        }
+
+
+        /* السؤال 11
+           أمثلة على الجبال الانكسارية
+        */
+
+        else if (number === 11) {
+
+            let count = 0;
+
+
+            const examples = [
+
+                "الصحراء الشرقية",
+
+                "السراة",
+
+                "الحجاز",
+
+                "عسير",
+
+                "اليمن"
+
+            ];
+
+
+            examples.forEach(example => {
+
+                if (answer.includes(example)) {
+
+                    count++;
+
+                }
+
+            });
+
+
+            correct =
+                count >= 2;
+
+        }
+
+
+        /* السؤال 12
+           سبب خصوبة السهول الفيضية
+        */
+
+        else if (number === 12) {
+
+            correct =
+
+                (
+                    answer.includes("الترسيب") ||
+
+                    answer.includes("رواسب") ||
+
+                    answer.includes("الطمي")
+                )
+
+                &&
+
+                (
+                    answer.includes("الانهار") ||
+
+                    answer.includes("النهر") ||
+
+                    answer.includes("الزراعة") ||
+
+                    answer.includes("الخصوبه")
+                );
+
+        }
+
+
+        /* =========================
+           النتيجة
+        ========================= */
+
+        if (correct) {
+
+            input.dataset.done = "true";
+
+            input.disabled = true;
+
+
+            result.innerHTML =
+                "<span class='correct-text'>✅ إجابة صحيحة! ممتازة ❤️</span>";
+
+
+            if (addPoint(input)) {
+
+                showReward();
+
+            }
+
+        }
+
+        else {
+
+            result.innerHTML =
+                "<span class='wrong-text'>❌ ليست الإجابة المطلوبة، حاولي مرة أخرى 🌸</span>";
+
+        }
+
+
+        checkFinished();
+
+    }
+
+
+    /* =========================
+       إظهار المكافأة
+    ========================= */
+
+    function showReward() {
+
+        const overlay =
+            document.getElementById("rewardOverlay");
+
+
+        const name =
+            petNames[
+                Math.floor(
+                    Math.random() *
+                    petNames.length
+                )
+            ];
+
+
+        const reward =
+            rewards[
+                Math.floor(
+                    Math.random() *
+                    rewards.length
+                )
+            ];
+
+
+        document.getElementById("rewardName").textContent =
+            "يا " + name + " ❤️";
+
+
+        document.getElementById("rewardText").textContent =
+            reward;
+
+
+        overlay.style.display = "flex";
+
+
+        createHearts();
+
+    }
+
+
+    /* =========================
+       إغلاق المكافأة
+    ========================= */
+
+    function closeReward() {
+
+        document.getElementById("rewardOverlay").style.display =
+            "none";
+
+    }
+
+
+    /* =========================
+       القلوب المتحركة
+    ========================= */
+
+    function createHearts() {
+
+        const overlay =
+            document.getElementById("rewardOverlay");
+
+
+        const symbols = [
+
+            "❤️",
+            "💕",
+            "💖",
+            "💗",
+            "💋",
+            "🥰"
+
+        ];
+
+
+        for (let i = 0; i < 18; i++) {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className = "heart";
+
+
+            heart.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.animationDelay =
+                Math.random() * 1.5 + "s";
+
+
+            heart.style.fontSize =
+                (18 + Math.random() * 20) + "px";
+
+
+            overlay.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 4000);
+
+        }
+
+    }
+
+
+    /* =========================
+       انتهاء الاختبار
+    ========================= */
+
+    function checkFinished() {
+
+        if (answered.size >= 30) {
+
+            const finalBox =
+                document.getElementById("finalBox");
+
+
+            finalBox.style.display = "block";
+
+
+            document.getElementById("finalScore").textContent =
+                score;
+
+
+            let message = "";
+
+
+            if (score >= 270) {
+
+                message =
+                    "🏆🔥 مذهلة! حفظك للدرس رائع جداً يا شطورة ❤️";
+
+            }
+
+            else if (score >= 210) {
+
+                message =
+                    "🌟 ممتاز! مستواك قوي جداً، بقيت بعض التفاصيل فقط ❤️";
+
+            }
+
+            else if (score >= 150) {
+
+                message =
+                    "👏 جيد جداً! راجعي بعض النقاط وستصبحين أقوى 💕";
+
+            }
+
+            else {
+
+                message =
+                    "💪 لا بأس! أعيدي مراجعة الدروس وجربي الاختبار مرة أخرى ❤️";
+
+            }
+
+
+            document.getElementById("finalMessage").textContent =
+                message;
+
+
+            finalBox.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        }
+
+    }
+
+
+    /* =========================
+       زر Enter
+    ========================= */
+
+    document.querySelectorAll(".typed").forEach(input => {
+
+        input.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+
+                    const number =
+                        this.id.replace("t", "");
+
+
+                    checkAnswer(
+                        Number(number)
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+</script>
+
+</body>
+</html>

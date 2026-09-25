@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مظاهر السطح في الوطن العربي - الهضاب</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #10131a;
+            color: #f5f5f5;
+            line-height: 1.9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1c2533, #11151d);
+            padding: 30px 15px;
+            text-align: center;
+            border-bottom: 3px solid #ff9800;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            color: #ff9800;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #ddd;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 850px;
+            margin: 25px auto;
+        }
+
+        .card {
+            background: #191f2b;
+            border: 1px solid #303949;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            color: #ff9800;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .card h3 {
+            color: #ffc266;
+            margin: 18px 0 10px;
+        }
+
+        .card p {
+            color: #e5e5e5;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .important {
+            background: #202936;
+            border-right: 5px solid #ff9800;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .important strong {
+            color: #ff9800;
+        }
+
+        .example {
+            background: #17252b;
+            border-right: 5px solid #00bcd4;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .example strong {
+            color: #00d9f5;
+        }
+
+        ul {
+            padding-right: 25px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 9px;
+            color: #ddd;
+        }
+
+        .memory {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .memory-box {
+            background: #222a38;
+            border: 1px solid #394457;
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .memory-box span {
+            display: block;
+            color: #ff9800;
+            font-size: 27px;
+            margin-bottom: 6px;
+        }
+
+        .question {
+            background: #202735;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            border: 1px solid #343d4d;
+        }
+
+        .question h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #171c26;
+            border: 1px solid #3c4658;
+            border-radius: 10px;
+            color: #eee;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: right;
+            font-size: 15px;
+        }
+
+        .option:hover {
+            border-color: #ff9800;
+            transform: translateX(-2px);
+        }
+
+        .option:disabled {
+            cursor: default;
+        }
+
+        .option.correct {
+            background: #174d35;
+            border-color: #27d17f;
+        }
+
+        .option.wrong {
+            background: #542222;
+            border-color: #ff5555;
+        }
+
+        .typed {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            border: 1px solid #465166;
+            background: #11151d;
+            color: white;
+            outline: none;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .typed:focus {
+            border-color: #ff9800;
+        }
+
+        .check-btn {
+            margin-top: 10px;
+            background: #ff9800;
+            color: #111;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .check-btn:hover {
+            background: #ffb52e;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+
+        .score-box {
+            position: sticky;
+            top: 10px;
+            z-index: 50;
+            background: rgba(25,31,43,0.96);
+            border: 2px solid #ff9800;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+        }
+
+        .score-box span {
+            color: #ff9800;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .navigation a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            background: #202735;
+            color: #fff;
+            border: 1px solid #414b5e;
+            padding: 13px 10px;
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+
+        .navigation a:hover {
+            border-color: #ff9800;
+            color: #ff9800;
+        }
+
+        /* نافذة المكافأة */
+
+        .reward-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            padding: 20px;
+        }
+
+        .reward {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(145deg, #252c3a, #151923);
+            border: 2px solid #ff9800;
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            overflow: hidden;
+            animation: pop 0.45s ease;
+        }
+
+        @keyframes pop {
+
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .reward h2 {
+            color: #ff9800;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .reward-message {
+            font-size: 21px;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .reward-emoji {
+            font-size: 55px;
+            margin: 10px 0;
+            animation: heartBeat 1s infinite;
+        }
+
+        @keyframes heartBeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .close-reward {
+            background: #ff9800;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: floatHeart 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes floatHeart {
+
+            from {
+                transform: translateY(100px) scale(0.5);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-400px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .number {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 23px;
+            }
+
+            .card {
+                padding: 17px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏜️ مظاهر السطح في الوطن العربي</h1>
+    <p>الهضاب في الوطن العربي</p>
+</header>
+
+<div class="container">
+
+    <!-- النقاط -->
+
+    <div class="score-box">
+        ⭐ مجموع النقاط:
+        <span id="score">0</span>
+    </div>
+
+
+    <!-- مقدمة الهضاب -->
+
+    <section class="card">
+
+        <h2>🏜️ ثالثاً: الهضاب في الوطن العربي</h2>
+
+        <p>
+            تعد الهضاب أكثر الأشكال التضاريسية انتشاراً في الوطن العربي.
+        </p>
+
+        <p>
+            كان الوطن العربي يتكون من هضبة رئيسة واحدة تمتد من الخليج العربي
+            حتى المحيط الأطلسي، إلا أن الانهدام الإفريقي الآسيوي أسهم في
+            انقسامها إلى هضبتين.
+        </p>
+
+        <p>
+            كما أسهمت عوامل الحت والتعرية في رسم أشكال سطحي الهضبتين.
+        </p>
+
+        <div class="important">
+
+            <strong>🧠 احفظي:</strong>
+
+            <br><br>
+
+            الهضاب = أكثر الأشكال التضاريسية انتشاراً.
+
+            <br>
+
+            الهضبة العربية الرئيسة انقسمت إلى هضبتين.
+
+        </div>
+
+    </section>
+
+
+    <!-- الهضاب العربية الشرقية -->
+
+    <section class="card">
+
+        <h2>🟠 1- الهضاب العربية الشرقية (الآسيوية)</h2>
+
+        <p>
+            تمتد الهضاب العربية الشرقية من الساحل الجنوبي لشبه الجزيرة
+            العربية حتى بادية الشام شمالاً.
+        </p>
+
+        <p>
+            وتمتد من الخليج العربي شرقاً حتى مرتفعات البحر الأحمر غرباً.
+        </p>
+
+        <div class="important">
+
+            <strong>📍 حدودها للحفظ:</strong>
+
+            <br><br>
+
+            جنوباً: الساحل الجنوبي لشبه الجزيرة العربية.
+
+            <br>
+
+            شمالاً: بادية الشام.
+
+            <br>
+
+            شرقاً: الخليج العربي.
+
+            <br>
+
+            غرباً: مرتفعات البحر الأحمر.
+
+        </div>
+
+    </section>
+
+
+    <!-- أقسام الهضاب الشرقية -->
+
+    <section class="card">
+
+        <h2>🗺️ أهم أقسام الهضاب العربية الشرقية</h2>
+
+        <div class="memory">
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>بادية الشام</b>
+
+                <br>
+
+                في الشمال
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>هضبة نجد</b>
+
+                <br>
+
+                في الوسط
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>هضبة حضرموت</b>
+
+                <br>
+
+                في الجنوب
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>الهضبة الصحراوية العراقية</b>
+
+                <br>
+
+                في الشمال الشرقي
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الارتفاع -->
+
+    <section class="card">
+
+        <h2>📏 ارتفاع الهضاب الشرقية</h2>
+
+        <p>
+            يتراوح ارتفاع الهضاب العربية الشرقية بشكل عام بين
+            <strong class="number">500 و900 متر</strong>.
+        </p>
+
+        <div class="important">
+
+            <strong>🧠 رقم مهم:</strong>
+
+            <br>
+
+            500 - 900 م
+
+        </div>
+
+    </section>
+
+
+    <!-- الأودية والمنخفضات -->
+
+    <section class="card">
+
+        <h2>🌵 الأودية والمنخفضات والواحات</h2>
+
+        <p>
+            تتخلل الهضاب العربية الشرقية مجموعة من المنخفضات والأودية
+            الجافة.
+        </p>
+
+        <ul>
+
+            <li>وادي السرحان.</li>
+
+            <li>وادي الدواسر.</li>
+
+        </ul>
+
+        <p>
+            وتوجد فيها أيضاً مجموعة من الواحات.
+        </p>
+
+        <div class="example">
+
+            <strong>🌴 مثال:</strong>
+
+            واحة الهفوف.
+
+        </div>
+
+        <p>
+            كما توجد بعض الكتل الجبلية المتفرقة مثل جبل شمر الذي يرتفع
+            إلى حوالي <strong>1700م</strong>.
+        </p>
+
+    </section>
+
+
+    <!-- صحارى الهضاب الشرقية -->
+
+    <section class="card">
+
+        <h2>🏜️ صحارى الهضاب العربية الشرقية</h2>
+
+        <p>
+            تتميز الهضاب العربية الشرقية بوجود مساحات واسعة من الرمال
+            على شكل صحارى كبيرة.
+        </p>
+
+        <div class="memory">
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>صحراء النفود</b>
+
+                <br>
+
+                بين بادية الشام وهضبة نجد
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>الربع الخالي</b>
+
+                <br>
+
+                بين نجد وحضرموت
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>الدهناء</b>
+
+                <br>
+
+                بين الخليج العربي ونجد
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- النفود -->
+
+    <section class="card">
+
+        <h2>🏜️ صحراء النفود</h2>
+
+        <p>
+            تقع صحراء النفود بين بادية الشام في الشمال وهضبة نجد في الجنوب.
+        </p>
+
+        <p>
+            وتمتد من الشرق إلى الغرب لمسافة تقارب
+            <strong>600 كم</strong>.
+        </p>
+
+        <div class="important">
+
+            <strong>🧠 مفتاح الحفظ:</strong>
+
+            <br><br>
+
+            النفود = بين بادية الشام ونجد.
+
+            <br>
+
+            الامتداد الشرقي الغربي ≈ 600 كم.
+
+        </div>
+
+    </section>
+
+
+    <!-- الربع الخالي -->
+
+    <section class="card">
+
+        <h2>🏜️ الربع الخالي</h2>
+
+        <p>
+            تغطي صحراء الربع الخالي مساحة تقارب نصف مليون كم².
+        </p>
+
+        <p>
+            وتقع بين هضبة نجد في الشمال وهضبة حضرموت في الجنوب.
+        </p>
+
+        <p>
+            وهي منخفض كبير يشغل نحو ربع مساحة شبه الجزيرة العربية،
+            ويعد من أكبر المناطق التي تغطيها الرمال في العالم.
+        </p>
+
+        <div class="important">
+
+            <strong>⭐ احفظي:</strong>
+
+            <br><br>
+
+            الربع الخالي:
+
+            <br>
+
+            📍 بين نجد وحضرموت.
+
+            <br>
+
+            📐 نحو نصف مليون كم².
+
+            <br>
+
+            🏜️ منطقة رملية واسعة جداً.
+
+        </div>
+
+    </section>
+
+
+    <!-- الدهناء -->
+
+    <section class="card">
+
+        <h2>🏜️ صحراء الدهناء</h2>
+
+        <p>
+            تقع صحراء الدهناء بين الخليج العربي في الشرق وهضبة نجد في الغرب.
+        </p>
+
+        <div class="example">
+
+            <strong>🧠 للحفظ:</strong>
+
+            <br><br>
+
+            الدهناء = الخليج العربي ↔️ نجد.
+
+        </div>
+
+    </section>
+
+
+    <!-- الهضاب الغربية -->
+
+    <section class="card">
+
+        <h2>🟢 2- الهضاب العربية الغربية (الإفريقية)</h2>
+
+        <p>
+            تقع الهضاب العربية الغربية في شمالي قارة إفريقيا،
+            وتسودها الصحراء الكبرى.
+        </p>
+
+        <p>
+            وتشمل مناطق واسعة من شمال إفريقيا.
+        </p>
+
+        <ul>
+
+            <li>موريتانيا.</li>
+
+            <li>الجزائر.</li>
+
+            <li>ليبيا.</li>
+
+            <li>مصر.</li>
+
+            <li>الأجزاء الجنوبية من المملكة المغربية.</li>
+
+            <li>تونس.</li>
+
+            <li>هضبة الشطوط في الجزائر.</li>
+
+            <li>الأجزاء الشمالية من السودان.</li>
+
+        </ul>
+
+    </section>
+
+
+    <!-- الصحراء الكبرى -->
+
+    <section class="card">
+
+        <h2>🌍 الصحراء العربية الإفريقية الكبرى</h2>
+
+        <p>
+            تعد الصحراء العربية الإفريقية الكبرى من أوسع الصحارى في العالم
+            من حيث المساحة.
+        </p>
+
+        <p>
+            وتبلغ مساحتها حوالي
+            <strong class="number">9,665,000 كم²</strong>.
+        </p>
+
+        <p>
+            وينحدر سطحها بشكل عام باتجاه الشمال.
+        </p>
+
+        <div class="important">
+
+            <strong>📌 رقم مهم:</strong>
+
+            <br><br>
+
+            مساحة الصحراء الكبرى ≈ 9,665,000 كم².
+
+        </div>
+
+    </section>
+
+
+    <!-- الأودية والواحات في الصحراء -->
+
+    <section class="card">
+
+        <h2>🌴 الأودية والواحات في الصحراء الكبرى</h2>
+
+        <p>
+            ينتشر في أرض الهضبة عدد من الأودية الجافة.
+        </p>
+
+        <div class="memory">
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                وادي الآجال
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🌴</span>
+
+                واحة سيوة
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🌴</span>
+
+                واحة الكفرة
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- المظاهر الصحراوية -->
+
+    <section class="card">
+
+        <h2>🏜️ المظاهر الصحراوية</h2>
+
+        <p>
+            تتنوع المظاهر الصحراوية على سطح الهضاب العربية الإفريقية
+            نتيجة عوامل التعرية الريحية.
+        </p>
+
+        <div class="memory">
+
+            <div class="memory-box">
+
+                <span>🌬️</span>
+
+                <b>العروق</b>
+
+                <br>
+
+                تراكمات رملية وكثبان
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🪨</span>
+
+                <b>الرق</b>
+
+                <br>
+
+                صحارى حصوية
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>⛰️</span>
+
+                <b>الحمادة</b>
+
+                <br>
+
+                صحارى حجرية
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- أمثلة المظاهر -->
+
+    <section class="card">
+
+        <h2>🌬️ أمثلة على المظاهر الصحراوية</h2>
+
+        <div class="example">
+
+            <strong>العروق:</strong>
+
+            ترسبات ريحية لكثبان رملية ناعمة متموجة،
+            مثل بحر الرمال العظيم والعرق الشرقي.
+
+        </div>
+
+        <div class="example">
+
+            <strong>الرق:</strong>
+
+            صحارى ذات تكوينات حصوية.
+
+        </div>
+
+        <div class="example">
+
+            <strong>الحمادة:</strong>
+
+            صحارى ذات تكوينات حجرية وصخرية،
+            مثل رق تادميت والحمادة الحمراء.
+
+        </div>
+
+        <div class="important">
+
+            <strong>🧠 قاعدة سهلة:</strong>
+
+            <br><br>
+
+            عروق = رمل 🏜️
+
+            <br>
+
+            رق = حصى 🪨
+
+            <br>
+
+            حمادة = صخور ⛰️
+
+        </div>
+
+    </section>
+
+
+    <!-- خريطة ذهنية -->
+
+    <section class="card">
+
+        <h2>🧠 الخريطة الذهنية للحفظ</h2>
+
+        <div class="memory">
+
+            <div class="memory-box">
+
+                <span>🟠</span>
+
+                <b>الهضاب الشرقية</b>
+
+                <br><br>
+
+                بادية الشام
+
+                <br>
+
+                نجد
+
+                <br>
+
+                حضرموت
+
+                <br>
+
+                الهضبة العراقية
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🟢</span>
+
+                <b>الهضاب الغربية</b>
+
+                <br><br>
+
+                شمال إفريقيا
+
+                <br>
+
+                الصحراء الكبرى
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🏜️</span>
+
+                <b>صحارى شرقية</b>
+
+                <br><br>
+
+                النفود
+
+                <br>
+
+                الربع الخالي
+
+                <br>
+
+                الدهناء
+
+            </div>
+
+            <div class="memory-box">
+
+                <span>🌬️</span>
+
+                <b>مظاهر صحراوية</b>
+
+                <br><br>
+
+                العروق
+
+                <br>
+
+                الرق
+
+                <br>
+
+                الحمادة
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- اختبار اختيار من متعدد -->
+
+    <section class="card">
+
+        <h2>🎯 اختبار الهضاب</h2>
+
+
+        <div class="question">
+
+            <h3>
+                1️⃣ ما أكثر الأشكال التضاريسية انتشاراً في الوطن العربي؟
+           </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                الهضاب
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                السواحل
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                السهول فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الجزر
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                2️⃣ إلى كم هضبة انقسمت الهضبة العربية الرئيسة؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                هضبة واحدة
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                هضبتين
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                ثلاث هضاب
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                أربع هضاب
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                3️⃣ أين تقع هضبة نجد؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                في شمال الهضاب الشرقية
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                في وسط الهضاب الشرقية
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                في جنوب إفريقيا
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                في المغرب
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                4️⃣ كم يتراوح ارتفاع الهضاب العربية الشرقية تقريباً؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                500 - 900 متر
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                100 - 200 متر
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                2000 - 3000 متر
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                أكثر من 5000 متر
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                5️⃣ بين ماذا تقع صحراء النفود؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                بين بادية الشام وهضبة نجد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين نجد وحضرموت
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين الخليج والبحر الأحمر
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين مصر وليبيا
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                6️⃣ بين ماذا تقع صحراء الربع الخالي؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين بادية الشام ونجد
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                بين هضبة نجد وهضبة حضرموت
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين الخليج ونجد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين مصر والسودان
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                7️⃣ بين ماذا تقع صحراء الدهناء؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين نجد وحضرموت
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                بين الخليج العربي وهضبة نجد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين بادية الشام ونجد
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                بين المغرب والجزائر
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                8️⃣ أين تقع الهضاب العربية الغربية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                في شرق آسيا
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                في شمال إفريقيا
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                في جنوب الجزيرة العربية فقط
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                في بلاد الشام فقط
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                9️⃣ أي مما يلي من المظاهر الصحراوية الرملية؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, true)">
+                العروق
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الرق
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الحمادة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الأودية
+            </button>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                🔟 ماذا يسمى النوع الذي يتكون من الحصى؟
+            </h3>
+
+            <button class="option" onclick="mcq(this, false)">
+                العروق
+            </button>
+
+            <button class="option" onclick="mcq(this, true)">
+                الرق
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الحمادة
+            </button>
+
+            <button class="option" onclick="mcq(this, false)">
+                الكثبان
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- الأسئلة الكتابية -->
+
+    <section class="card">
+
+        <h2>✍️ أسئلة تحتاج كتابة</h2>
+
+
+        <div class="question">
+
+            <h3>
+                1️⃣ اذكري الهضبتين اللتين انقسمت إليهما الهضبة العربية الرئيسة.
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer1"
+                placeholder="اكتبي الإجابة..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(1)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result1"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                2️⃣ اذكري ثلاثة من أقسام الهضاب العربية الشرقية.
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer2"
+                placeholder="مثال: نجد، حضرموت..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(2)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result2"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                3️⃣ أين تقع صحراء النفود؟
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer3"
+                placeholder="اكتبي الإجابة..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(3)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result3"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                4️⃣ أين تقع صحراء الربع الخالي؟
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer4"
+                placeholder="اكتبي الإجابة..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(4)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result4"></div>
+
+        </div>
+
+
+        <div class="question">
+
+            <h3>
+                5️⃣ ما الفرق بين العروق والرق والحمادة؟
+            </h3>
+
+            <input
+                type="text"
+                class="typed"
+                id="answer5"
+                placeholder="اكتبي الفرق..."
+            >
+
+            <button class="check-btn" onclick="checkAnswer(5)">
+                تحقق من الإجابة ✅
+            </button>
+
+            <div class="result" id="result5"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- مراجعة سريعة -->
+
+    <section class="card">
+
+        <h2>⚡ مراجعة سريعة قبل الاختبار النهائي</h2>
+
+        <div class="important">
+
+            <strong>1️⃣ الهضاب العربية الشرقية:</strong>
+
+            <br>
+
+            بادية الشام - نجد - حضرموت - الهضبة الصحراوية العراقية.
+
+            <br><br>
+
+            <strong>2️⃣ أهم صحارى الشرق:</strong>
+
+            <br>
+
+            النفود - الربع الخالي - الدهناء.
+
+            <br><br>
+
+            <strong>3️⃣ الهضاب العربية الغربية:</strong>
+
+            <br>
+
+            شمال إفريقيا والصحراء الكبرى.
+
+            <br><br>
+
+            <strong>4️⃣ المظاهر الصحراوية:</strong>
+
+            <br>
+
+            العروق = رمل.
+
+            <br>
+
+            الرق = حصى.
+
+            <br>
+
+            الحمادة = صخور.
+
+        </div>
+
+    </section>
+
+
+    <!-- التنقل -->
+
+    <div class="navigation">
+
+        <a href="07-fold-fault-volcanic.html">
+            ⬅️ السابق
+        </a>
+
+        <a href="09-final-test.html">
+            الاختبار النهائي 🏆 ➡️
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- نافذة المكافأة -->
+
+<div class="reward-overlay" id="rewardOverlay">
+
+    <div class="reward" id="rewardBox">
+
+        <div class="reward-emoji" id="rewardEmoji">
+            💖
+        </div>
+
+        <h2>🎉 أحسنتِ!</h2>
+
+        <div class="reward-message" id="rewardMessage">
+            شطورة! 💕
+        </div>
+
+        <button class="close-reward" onclick="closeReward()">
+            متابعة الدراسة 📚
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    let score = 0;
+
+    let answeredQuestions = new Set();
+
+
+    const petNames = [
+
+        "بيسة",
+        "بسبوسة",
+        "دلوعة",
+        "شطورة",
+        "حبيبة البابا",
+        "صغرونتي",
+        "الفرولة",
+        "الكيكة",
+        "الغزالة",
+        "السنيورة"
+
+    ];
+
+
+    const rewards = [
+
+        {
+            emoji: "🤗",
+            text: "تستاهلي حضن كبير يا"
+        },
+
+        {
+            emoji: "😘",
+            text: "إلك بوسة حلوة يا"
+        },
+
+        {
+            emoji: "🥰",
+            text: "بوسة على خدك اليمين يا"
+        },
+
+        {
+            emoji: "😍",
+            text: "بوسة على خدك اليسار يا"
+        },
+
+        {
+            emoji: "💋",
+            text: "بوسة على جبينك يا"
+        },
+
+        {
+            emoji: "💋",
+            text: "بوسة على شفايفك يا"
+        },
+
+        {
+            emoji: "💋",
+            text: "بوسات كثيرة على وجهك يا"
+        }
+
+    ];
+
+
+    function updateScore() {
+
+        document.getElementById("score").textContent = score;
+
+    }
+
+
+    function mcq(button, correct) {
+
+        const question =
+            button.closest(".question");
+
+
+        if (question.dataset.answered === "true") {
+            return;
+        }
+
+
+        question.dataset.answered = "true";
+
+
+        const buttons =
+            question.querySelectorAll(".option");
+
+
+        buttons.forEach(btn => {
+            btn.disabled = true;
+        });
+
+
+        if (correct) {
+
+            button.classList.add("correct");
+
+            score += 10;
+
+            updateScore();
+
+            showReward();
+
+        } else {
+
+            button.classList.add("wrong");
+
+
+            buttons.forEach(btn => {
+
+                if (
+                    btn.getAttribute("onclick") &&
+                    btn.getAttribute("onclick").includes("true")
+                ) {
+
+                    btn.classList.add("correct");
+
+                }
+
+            });
+
+        }
+
+    }
+
+
+    function normalize(text) {
+
+        return text
+            .toLowerCase()
+            .replace(/[ًٌٍَُِّْـ]/g, "")
+            .replace(/أ|إ|آ/g, "ا")
+            .replace(/ة/g, "ه")
+            .replace(/ى/g, "ي")
+            .trim();
+
+    }
+
+
+    function checkAnswer(number) {
+
+        if (answeredQuestions.has(number)) {
+            return;
+        }
+
+
+        const input =
+            document.getElementById("answer" + number);
+
+
+        const result =
+            document.getElementById("result" + number);
+
+
+        const answer =
+            normalize(input.value);
+
+
+        let correct = false;
+
+
+        /* السؤال الأول */
+
+        if (number === 1) {
+
+            const eastern =
+                answer.includes("شرقي") ||
+                answer.includes("اسيوي");
+
+            const western =
+                answer.includes("غربي") ||
+                answer.includes("افريقي");
+
+            correct = eastern && western;
+
+        }
+
+
+        /* السؤال الثاني */
+
+        if (number === 2) {
+
+            const names = [
+
+                "باديه الشام",
+                "نجد",
+                "حضرموت",
+                "العراقيه",
+                "العراقية"
+
+            ];
+
+
+            let count = 0;
+
+
+            names.forEach(name => {
+
+                if (answer.includes(normalize(name))) {
+                    count++;
+                }
+
+            });
+
+
+            correct = count >= 3;
+
+        }
+
+
+        /* السؤال الثالث */
+
+        if (number === 3) {
+
+            correct =
+                (
+                    answer.includes("باديه الشام") ||
+                    answer.includes("بادية الشام")
+                )
+                &&
+                answer.includes("نجد");
+
+        }
+
+
+        /* السؤال الرابع */
+
+        if (number === 4) {
+
+            correct =
+                answer.includes("نجد") &&
+                answer.includes("حضرموت");
+
+        }
+
+
+        /* السؤال الخامس */
+
+        if (number === 5) {
+
+            correct =
+                (
+                    answer.includes("عروق") &&
+                    answer.includes("رمل")
+                )
+                &&
+                (
+                    answer.includes("رق") &&
+                    answer.includes("حصى")
+                )
+                &&
+                (
+                    answer.includes("حماده") &&
+                    (
+                        answer.includes("صخر") ||
+                        answer.includes("حجر")
+                    )
+                );
+
+        }
+
+
+        if (correct) {
+
+            answeredQuestions.add(number);
+
+
+            result.textContent =
+                "✅ إجابة صحيحة! ممتازة يا شطورة 💕";
+
+
+            result.style.color =
+                "#27d17f";
+
+
+            score += 10;
+
+
+            updateScore();
+
+
+            showReward();
+
+        } else {
+
+            result.textContent =
+                "❌ حاولي مرة أخرى، وراجعي الملخص 🧠";
+
+
+            result.style.color =
+                "#ff6666";
+
+        }
+
+    }
+
+
+    function showReward() {
+
+        const overlay =
+            document.getElementById("rewardOverlay");
+
+
+        const message =
+            document.getElementById("rewardMessage");
+
+
+        const emoji =
+            document.getElementById("rewardEmoji");
+
+
+        const randomPet =
+            petNames[
+                Math.floor(
+                    Math.random() *
+                    petNames.length
+                )
+            ];
+
+
+        const randomReward =
+            rewards[
+                Math.floor(
+                    Math.random() *
+                    rewards.length
+                )
+            ];
+
+
+        emoji.textContent =
+            randomReward.emoji;
+
+
+        message.innerHTML =
+            randomReward.text +
+            " <strong>" +
+            randomPet +
+            "</strong> 💕";
+
+
+        overlay.style.display =
+            "flex";
+
+
+        createHearts();
+
+    }
+
+
+    function closeReward() {
+
+        document.getElementById("rewardOverlay")
+            .style.display = "none";
+
+    }
+
+
+    function createHearts() {
+
+        const box =
+            document.getElementById("rewardBox");
+
+
+        for (let i = 0; i < 12; i++) {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className =
+                "heart";
+
+
+            heart.textContent =
+                Math.random() > 0.5
+                    ? "❤️"
+                    : "💗";
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.bottom =
+                "0px";
+
+
+            heart.style.animationDelay =
+                Math.random() * 0.8 + "s";
+
+
+            box.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 3500);
+
+        }
+
+    }
+
+
+    /* الضغط على Enter في أسئلة الكتابة */
+
+    document
+        .querySelectorAll(".typed")
+        .forEach(input => {
+
+            input.addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (event.key === "Enter") {
+
+                        event.preventDefault();
+
+
+                        const number =
+                            this.id.replace(
+                                "answer",
+                                ""
+                            );
+
+
+                        checkAnswer(
+                            Number(number)
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+</script>
+
+</body>
+</html>
